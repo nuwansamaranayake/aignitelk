@@ -260,6 +260,22 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+                <div className="mt-4 flex items-center gap-4">
+                  <a
+                    href="mailto:nuwan@aigniteconsulting.ai"
+                    className="text-sm text-text-muted transition-colors hover:text-brand-green"
+                  >
+                    nuwan@aigniteconsulting.ai
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/nuwan-samaranayake-8a50388/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-text-muted transition-colors hover:text-brand-green"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -315,10 +331,10 @@ export default function Home() {
             Interested in our products or looking to collaborate?
           </p>
           <a
-            href="mailto:contact@aignitelk.com"
+            href="mailto:aruni@aigniteconsulting.ai"
             className="mt-8 inline-block rounded-lg bg-brand-green px-8 py-3 font-semibold text-bg transition-colors hover:bg-brand-green-dark"
           >
-            contact@aignitelk.com
+            aruni@aigniteconsulting.ai
           </a>
         </div>
       </section>
@@ -339,10 +355,10 @@ export default function Home() {
               AiGNITE Consulting LLC
             </a>
             <a
-              href="mailto:contact@aignitelk.com"
+              href="mailto:aruni@aigniteconsulting.ai"
               className="transition-colors hover:text-text-muted"
             >
-              contact@aignitelk.com
+              aruni@aigniteconsulting.ai
             </a>
           </div>
         </div>
