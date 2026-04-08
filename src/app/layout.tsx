@@ -33,6 +33,13 @@ export const metadata: Metadata = {
     "artificial intelligence",
     "software development",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "AiGNITE Software (Pvt) Ltd",
     description: "AI-Powered Software Solutions from Sri Lanka",
