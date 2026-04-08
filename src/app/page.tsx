@@ -283,9 +283,22 @@ export default function Home() {
                 <h3 className="mt-2 font-heading text-2xl font-bold">
                   Aruni Samaranayake
                 </h3>
-                <p className="mt-1 text-sm text-text-muted">
+                <p className="mt-1 text-sm text-brand-green">
                   AiGNITE Software (Pvt) Ltd, Sri Lanka
                 </p>
+                <p className="mt-4 text-sm leading-relaxed text-text-muted">
+                  Undergraduate in Information Technology at Keiser University, Florida. Brings a fresh perspective to technology-driven solutions with strong foundations in commerce and IT. Bilingual in English and Sinhala.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["Information Technology", "Business Operations", "Research & Analysis"].map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-border-light bg-bg-surface px-3 py-1 text-xs text-text-dim"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
