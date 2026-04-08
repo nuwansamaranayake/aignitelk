@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-const products: { name: string; description: string; url?: string; icon: React.ReactNode }[] = [
+const products: { name: string; description: string; url?: string; docsUrl?: string; icon: React.ReactNode }[] = [
   {
     name: "DrapeStudio",
     description:
       "AI-powered product photography for Sri Lankan e-commerce sellers. Transform basic product photos into professional catalog-ready images.",
+    url: "https://drapestudiolk.com",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
@@ -15,7 +16,9 @@ const products: { name: string; description: string; url?: string; icon: React.R
   {
     name: "GoviHub",
     description:
-      "Agricultural intelligence platform connecting Sri Lankan farmers with buyers through smart matching, real-time pricing, and Sinhala/Tamil language support.",
+      "Agricultural intelligence platform connecting Sri Lankan farmers with buyers through smart matching, real-time pricing, and Sinhala/Tamil language support. Currently piloting for the spices market.",
+    url: "https://spices.govihublk.com/si",
+    docsUrl: "https://docs.govihublk.com",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
@@ -185,15 +188,29 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-relaxed text-text-muted">
                   {product.description}
                 </p>
-                {product.url && (
-                  <a
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1 text-sm text-brand-green transition-colors hover:text-brand-green-dark"
-                  >
-                    Visit →
-                  </a>
+                {(product.url || product.docsUrl) && (
+                  <div className="mt-4 flex items-center gap-4">
+                    {product.url && (
+                      <a
+                        href={product.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-brand-green transition-colors hover:text-brand-green-dark"
+                      >
+                        Visit →
+                      </a>
+                    )}
+                    {product.docsUrl && (
+                      <a
+                        href={product.docsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-brand-gold transition-colors hover:text-brand-gold-light"
+                      >
+                        Learn the concept →
+                      </a>
+                    )}
+                  </div>
                 )}
               </div>
             ))}
