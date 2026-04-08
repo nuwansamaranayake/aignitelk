@@ -221,37 +221,70 @@ export default function Home() {
       {/* Team */}
       <section id="team" className="border-t border-border">
         <div className="section-container">
-          <div className="text-center">
-            <h2 className="font-heading text-3xl font-bold sm:text-4xl">
-              Our <span className="text-gradient-green">Team</span>
-            </h2>
-            <div className="glass-card mx-auto mt-10 max-w-md p-10">
-              <div className="mb-4 text-4xl text-text-dim">👥</div>
-              <p className="text-lg text-text-muted">
-                Meet our team — coming soon
-              </p>
-            </div>
-            <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
-              <div className="glass-card p-6 text-left">
-                <p className="text-xs font-medium uppercase tracking-wider text-brand-gold">
-                  Director
-                </p>
-                <p className="mt-2 font-heading text-lg font-semibold">
-                  Aruni Samaranayake
-                </p>
-                <p className="mt-1 text-sm text-text-muted">
-                  AiGNITE Software (Pvt) Ltd
-                </p>
+          <h2 className="text-center font-heading text-3xl font-bold sm:text-4xl">
+            Our <span className="text-gradient-green">Team</span>
+          </h2>
+
+          {/* Nuwan - Featured */}
+          <div className="mx-auto mt-14 max-w-3xl">
+            <div className="glass-card overflow-hidden sm:flex">
+              <div className="flex-shrink-0 sm:w-56">
+                <Image
+                  src="/team/nuwan_profile.png"
+                  alt="Nuwan Samaranayake"
+                  width={224}
+                  height={280}
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <div className="glass-card p-6 text-left">
+              <div className="p-8">
                 <p className="text-xs font-medium uppercase tracking-wider text-brand-gold">
                   Principal Software Architect & Mentor
                 </p>
-                <p className="mt-2 font-heading text-lg font-semibold">
+                <h3 className="mt-2 font-heading text-2xl font-bold">
                   Nuwan Samaranayake
+                </h3>
+                <p className="mt-1 text-sm text-brand-green">
+                  Founder/CEO, AiGNITE Consulting LLC, Houston TX
                 </p>
+                <p className="mt-4 text-sm leading-relaxed text-text-muted">
+                  30 years of software engineering with deep expertise in AI/ML, multi-agent architectures, and enterprise systems. Former technical lead at Infosys/HPE, IBM, and MCI — managing 40+ developer teams across global locations. Architect of AiGNITE&apos;s product suite and AI strategy across both entities.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["AI/ML", "Multi-Agent Systems", "Full Stack", "Cloud Architecture", "Python", "TypeScript"].map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-border-light bg-bg-surface px-3 py-1 text-xs text-text-dim"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Aruni */}
+          <div className="mx-auto mt-8 max-w-3xl">
+            <div className="glass-card overflow-hidden sm:flex">
+              <div className="flex-shrink-0 sm:w-56">
+                <Image
+                  src="/team/aruni.jpg"
+                  alt="Aruni Samaranayake"
+                  width={224}
+                  height={280}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <p className="text-xs font-medium uppercase tracking-wider text-brand-gold">
+                  Director
+                </p>
+                <h3 className="mt-2 font-heading text-2xl font-bold">
+                  Aruni Samaranayake
+                </h3>
                 <p className="mt-1 text-sm text-text-muted">
-                  Founder/CEO, AiGNITE Consulting LLC
+                  AiGNITE Software (Pvt) Ltd, Sri Lanka
                 </p>
               </div>
             </div>
