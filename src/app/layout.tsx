@@ -30,6 +30,8 @@ export const metadata: Metadata = {
     "Sri Lanka",
     "DrapeStudio",
     "GoviHub",
+    "ScanPass",
+    "event credentialing",
     "artificial intelligence",
     "software development",
   ],
