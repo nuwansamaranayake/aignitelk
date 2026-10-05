@@ -1,12 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 import LkLogo from "@/components/LkLogo";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
-const products: { name: string; description: string; url?: string; docsUrl?: string; icon: React.ReactNode }[] = [
+const products: { name: string; description: string; url?: string; docsUrl?: string; page?: { href: string; label: string }; icon: React.ReactNode }[] = [
   {
     name: "DrapeStudio",
     description:
       "AI-powered product photography for Sri Lankan e-commerce sellers. Transform basic product photos into professional catalog-ready images.",
     url: "https://drapestudiolk.com",
+    page: { href: "/products/drapestudio", label: "See DrapeStudio & MirrorMe →" },
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
@@ -73,32 +77,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/90 backdrop-blur-md">
-        <div className="h-[3px] bg-stripe" />
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3">
-            <LkLogo size={40} />
-          </div>
-          <div className="hidden items-center gap-8 text-sm text-text-muted sm:flex">
-            <a href="#about" className="transition-colors hover:text-lk-maroon">
-              About
-            </a>
-            <a href="#products" className="transition-colors hover:text-lk-maroon">
-              Products
-            </a>
-            <a href="#team" className="transition-colors hover:text-lk-maroon">
-              Team
-            </a>
-            <a
-              href="#contact"
-              className="rounded-lg bg-lk-maroon px-4 py-2 text-white transition-colors hover:bg-lk-maroon-deep"
-            >
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* Award (first section, directly under the fixed nav) */}
       <section id="award" className="pt-[84px]">
@@ -271,8 +250,16 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-relaxed text-text-muted">
                   {product.description}
                 </p>
-                {(product.url || product.docsUrl) && (
-                  <div className="mt-4 flex items-center gap-4">
+                {(product.url || product.docsUrl || product.page) && (
+                  <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+                    {product.page && (
+                      <Link
+                        href={product.page.href}
+                        className="inline-flex items-center gap-1 text-sm font-semibold text-lk-maroon underline underline-offset-2 transition-colors hover:text-lk-maroon-deep"
+                      >
+                        {product.page.label}
+                      </Link>
+                    )}
                     {product.url && (
                       <a
                         href={product.url}
@@ -331,7 +318,7 @@ export default function Home() {
                   Founder/CEO, AiGNITE Consulting LLC, Houston TX
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-text-muted">
-                  30 years of software engineering with deep expertise in AI/ML, multi-agent architectures, and enterprise systems. Former technical lead at Infosys/HPE, IBM, and MCI — managing 40+ developer teams across global locations. Architect of AiGNITE&apos;s product suite and AI strategy across both entities.
+                  30 years of software engineering with deep expertise in AI/ML, multi-agent architectures, and enterprise systems. Former technical lead at Infosys/HPE, IBM, and MCI, managing 40+ developer teams across global locations. Architect of AiGNITE&apos;s product suite and AI strategy across both entities.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {["AI/ML", "Multi-Agent Systems", "Full Stack", "Cloud Architecture", "Python", "TypeScript"].map((skill) => (
@@ -422,31 +409,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-lk-maroon-deep">
-        <div className="h-1 bg-stripe" />
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-          <p className="text-sm text-lk-sand-2">
-            © 2025 AiGNITE Software (Pvt) Ltd. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6 text-sm text-lk-sand-2">
-            <a
-              href="https://aigniteconsulting.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-lk-gold"
-            >
-              AiGNITE Consulting LLC
-            </a>
-            <a
-              href="mailto:aruni@aigniteconsulting.ai"
-              className="transition-colors hover:text-lk-gold"
-            >
-              aruni@aigniteconsulting.ai
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

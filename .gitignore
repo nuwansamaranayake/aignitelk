@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local backups before edits (AIGNITELK-01 rule)
+_backup/
+# retired files, kept locally instead of deleted (AIGNITELK-01 rule)
+_archive/

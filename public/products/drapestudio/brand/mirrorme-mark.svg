@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="flare" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF2E88"/>
+      <stop offset="1" stop-color="#D11E6B"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="118" fill="url(#flare)"/>
+  <g stroke="#FFFFFF" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M 150 292 L 150 150 L 256 262 L 362 150 L 362 292"/>
+  </g>
+  
+</svg>
