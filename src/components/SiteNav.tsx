@@ -1,16 +1,29 @@
 import Link from "next/link";
 import LkLogo from "@/components/LkLogo";
+import MobileNav, { type NavItem } from "@/components/MobileNav";
 
 // Site shell navigation, shared by every page. Section links point at the
 // home page so they work from product pages too.
-const productPages = [{ href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" }];
+const productPages = [
+  { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
+  { href: "/govihub", label: "GoviHub" },
+];
+
+const mobileItems: NavItem[] = [
+  { href: "/#about", label: "About" },
+  { href: "/#products", label: "Products" },
+  { href: "/govihub", label: "GoviHub" },
+  { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
+  { href: "/#team", label: "Team" },
+  { href: "/#contact", label: "Contact" },
+];
 
 export default function SiteNav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/90 backdrop-blur-md">
       <div className="h-[3px] bg-stripe" />
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" aria-label="AiGNITE Software home" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <LkLogo size={40} />
         </Link>
         <div className="hidden items-center gap-8 text-sm text-text-muted sm:flex">
@@ -34,6 +47,9 @@ export default function SiteNav() {
               </div>
             </div>
           </div>
+          <Link href="/govihub" className="transition-colors hover:text-lk-maroon">
+            GoviHub
+          </Link>
           <a href="/#team" className="transition-colors hover:text-lk-maroon">
             Team
           </a>
@@ -44,6 +60,7 @@ export default function SiteNav() {
             Contact
           </a>
         </div>
+        <MobileNav items={mobileItems} />
       </div>
     </nav>
   );
