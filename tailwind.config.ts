@@ -53,6 +53,22 @@ const config: Config = {
           text: '#F6F3FA',
           'text-2': '#B7B1C4',
         },
+        // GoviHub accents, from the GoviHub Design System (tokens/colors.css, sector "spices" layer + slate neutrals)
+        gh: {
+          field: '#2D6A2E',
+          leaf: '#1B5E20',
+          gold: '#E8A838',
+          pepper: '#B91C1C',
+          sky: '#2563EB',
+          'sky-tint': '#EFF6FF',
+          'green-tint': '#F0FDF4',
+          'gold-tint': '#FFFBEB',
+          'pepper-tint': '#FEF2F2',
+          ink: '#0F172A',
+          slate: '#475569',
+          page: '#F8FAFC',
+          line: '#E2E8F0',
+        },
         bg: {
           DEFAULT: '#FBF7F0',
           alt: '#F3EBDD',
