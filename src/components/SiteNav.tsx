@@ -1,9 +1,22 @@
 import Link from "next/link";
 import LkLogo from "@/components/LkLogo";
+import MobileNav, { type NavItem } from "@/components/MobileNav";
 
 // Site shell navigation, shared by every page. Section links point at the
 // home page so they work from product pages too.
-const productPages = [{ href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" }];
+const productPages = [
+  { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
+  { href: "/govihub", label: "GoviHub" },
+];
+
+const mobileItems: NavItem[] = [
+  { href: "/#about", label: "About" },
+  { href: "/#products", label: "Products" },
+  { href: "/govihub", label: "GoviHub" },
+  { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
+  { href: "/#team", label: "Team" },
+  { href: "/#contact", label: "Contact" },
+];
 
 export default function SiteNav() {
   return (
@@ -34,6 +47,9 @@ export default function SiteNav() {
               </div>
             </div>
           </div>
+          <Link href="/govihub" className="transition-colors hover:text-lk-maroon">
+            GoviHub
+          </Link>
           <a href="/#team" className="transition-colors hover:text-lk-maroon">
             Team
           </a>
@@ -44,6 +60,7 @@ export default function SiteNav() {
             Contact
           </a>
         </div>
+        <MobileNav items={mobileItems} />
       </div>
     </nav>
   );

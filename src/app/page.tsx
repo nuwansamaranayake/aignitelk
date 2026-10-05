@@ -27,10 +27,15 @@ const products: { name: string; description: string; url?: string; docsUrl?: str
       "Agricultural intelligence platform connecting Sri Lankan farmers with buyers through smart matching, real-time pricing, and Sinhala/Tamil language support. Currently piloting for the spices market.",
     url: "https://spices.govihublk.com/si",
     docsUrl: "https://docs.govihublk.com",
+    page: { href: "/govihub", label: "See GoviHub →" },
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-      </svg>
+      <Image
+        src="/img/govihub/govihub-icon-192.webp"
+        alt="GoviHub logo"
+        width={192}
+        height={192}
+        className="h-12 w-12"
+      />
     ),
   },
   {
@@ -115,14 +120,12 @@ export default function Home() {
               ))}
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="https://govihublk.com"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/govihub"
                 className="rounded-lg bg-lk-maroon px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-lk-maroon-deep"
               >
                 Explore GoviHub
-              </a>
+              </Link>
               <a
                 href="#contact"
                 className="rounded-lg border border-lk-maroon px-6 py-3 text-center font-semibold text-lk-maroon transition-colors hover:bg-lk-maroon/5"
