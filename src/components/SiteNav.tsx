@@ -23,7 +23,7 @@ export default function SiteNav() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/90 backdrop-blur-md">
       <div className="h-[3px] bg-stripe" />
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" aria-label="AiGNITE Software home" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <LkLogo size={40} />
         </Link>
         <div className="hidden items-center gap-8 text-sm text-text-muted sm:flex">

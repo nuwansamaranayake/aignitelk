@@ -97,4 +97,5 @@ BUILT BY / CLOSING  stacked buttons, full width
 ## Deviations from the brief, decided
 
 - Real app screenshots: the brief's `TEST_ACCOUNT` was not filled in, and Claude may not sign in to production with credentials. Screens without other users' data were taken from the GoviHub repo's own test evidence. Fresh Sinhala captures of the diagnosis flow, advisor, listing and marketplace need Nuwan to sign in to the browser pane once.
+- Interim release (Nuwan's choice, 2026-10-05): the page shipped before the screenshots. With `screensReady = false` the hero shows the generated hands photo in place of the phone mockup, the AI rows show the pepper and turmeric photos, and the other rows are text only. The signature animation turns on with the real screens.
 - Design system readme says "no stock photography". The brief explicitly asks for five generated images, so the brief wins. They show crops, land and hands only.

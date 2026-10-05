@@ -21,6 +21,7 @@ import {
   recognition,
   screenSrc,
   screens,
+  screensReady,
   sectors,
   steps,
   visionMission,
@@ -83,6 +84,7 @@ function Photo({ p, sizes, className = "", eager = false }: { p: PhotoRef; sizes
         width={fallback}
         height={Math.round((fallback * p.h) / p.w)}
         loading={eager ? "eager" : "lazy"}
+        fetchPriority={eager ? "high" : undefined}
         decoding="async"
         className={className}
       />
@@ -181,15 +183,26 @@ export default function GoviHubPage() {
                 </a>
               </div>
             </div>
-            <PhoneDemo
-              label="The GoviHub crop diagnosis flow: a leaf photo, then the result and treatment advice in Sinhala"
-              frames={[screens.diagPhoto, screens.diagResult, screens.diagAdvice].map((s) => ({
-                src: screenSrc(s),
-                alt: s.alt,
-                width: 390,
-                height: 844,
-              }))}
-            />
+            {screensReady ? (
+              <PhoneDemo
+                label="The GoviHub crop diagnosis flow: a leaf photo, then the result and treatment advice in Sinhala"
+                frames={[screens.diagPhoto, screens.diagResult, screens.diagAdvice].map((s) => ({
+                  src: screenSrc(s),
+                  alt: s.alt,
+                  width: 390,
+                  height: 844,
+                }))}
+              />
+            ) : (
+              <div className="relative mx-auto w-full max-w-[19rem] md:max-w-[21rem]">
+                <Photo
+                  p={photos.handsTall}
+                  sizes="(min-width: 768px) 21rem, 19rem"
+                  eager
+                  className="block h-auto w-full rounded-[2rem] border-4 border-white object-cover shadow-[0_25px_50px_-12px_rgb(0_0_0/0.35)]"
+                />
+              </div>
+            )}
           </div>
         </section>
 
@@ -220,11 +233,19 @@ export default function GoviHubPage() {
             <div className="mt-10 space-y-6 rounded-3xl border border-gh-line bg-gh-green-tint p-6 sm:p-10">
               <div className="grid items-center gap-8 md:grid-cols-[1.2fr_0.8fr]">
                 <FeatureText f={features.diagnose} />
-                <ScreenShot s={screens.diagResult} className="mx-auto w-56 sm:w-60" />
+                {screensReady ? (
+                  <ScreenShot s={screens.diagResult} className="mx-auto w-56 sm:w-60" />
+                ) : (
+                  <Photo p={photos.pepperTall} sizes="(min-width: 768px) 20rem, 90vw" className="mx-auto block h-64 w-full max-w-xs rounded-3xl object-cover md:h-72" />
+                )}
               </div>
               <div className="border-t border-gh-line" />
               <div className="grid items-center gap-8 md:grid-cols-[0.8fr_1.2fr]">
-                <ScreenShot s={screens.advisor} className="order-2 mx-auto w-56 sm:w-60 md:order-1" />
+                {screensReady ? (
+                  <ScreenShot s={screens.advisor} className="order-2 mx-auto w-56 sm:w-60 md:order-1" />
+                ) : (
+                  <Photo p={photos.turmericWide} sizes="(min-width: 768px) 24rem, 90vw" className="order-2 mx-auto block h-56 w-full rounded-3xl object-cover md:order-1 md:h-64" />
+                )}
                 <div className="order-1 md:order-2">
                   <FeatureText f={features.advisor} />
                 </div>
@@ -234,17 +255,17 @@ export default function GoviHubPage() {
             <div className="mt-6 grid gap-6 md:grid-cols-2">
               <div className="grid grid-cols-[1fr_auto] items-end gap-5 rounded-3xl border border-gh-line bg-white p-6">
                 <FeatureText f={features.sell} size="md" />
-                <ScreenShot s={screens.listing} className="w-28 sm:w-36" />
+                {screensReady && <ScreenShot s={screens.listing} className="w-28 sm:w-36" />}
               </div>
               <div className="grid grid-cols-[1fr_auto] items-end gap-5 rounded-3xl border border-gh-line bg-gh-sky-tint p-6">
                 <FeatureText f={features.weather} size="md" />
-                <ScreenShot s={screens.weather} className="w-28 sm:w-36" />
+                {screensReady && <ScreenShot s={screens.weather} className="w-28 sm:w-36" />}
               </div>
             </div>
 
             <div className="mt-6 grid gap-6 md:grid-cols-[1fr_1fr]">
               <div className="flex items-start gap-4 rounded-2xl bg-white p-5">
-                <ScreenShot s={screens.market} className="w-20 shrink-0 rounded-[1.2rem] border-[5px]" />
+                {screensReady && <ScreenShot s={screens.market} className="w-20 shrink-0 rounded-[1.2rem] border-[5px]" />}
                 <FeatureText f={features.inputs} size="sm" />
               </div>
               <div className="rounded-2xl bg-white p-5">
@@ -290,7 +311,7 @@ export default function GoviHubPage() {
 
         {/* 5. Start in four steps: the only numbered markers on the page */}
         <section aria-labelledby="gh-steps" className="bg-gh-gold-tint py-16 md:py-20">
-          <div className={`${wrap} grid items-center gap-10 md:grid-cols-[1fr_16rem]`}>
+          <div className={`${wrap} grid items-center gap-10 ${screensReady ? "md:grid-cols-[1fr_16rem]" : ""}`}>
             <div>
               <h2 id="gh-steps" className="text-3xl font-extrabold sm:text-4xl">
                 {steps.heading}
@@ -306,7 +327,9 @@ export default function GoviHubPage() {
                 ))}
               </ol>
             </div>
-            <Photo p={photos.handsTall} sizes="(min-width: 768px) 16rem, 70vw" className="mx-auto hidden h-auto w-64 rounded-3xl object-cover shadow-lg md:block" />
+            {screensReady && (
+              <Photo p={photos.handsTall} sizes="(min-width: 768px) 16rem, 70vw" className="mx-auto hidden h-auto w-64 rounded-3xl object-cover shadow-lg md:block" />
+            )}
           </div>
         </section>
 

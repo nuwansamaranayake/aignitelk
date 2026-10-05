@@ -120,6 +120,9 @@ export const closing = {
 };
 
 // Real GoviHub app screenshots (spices.govihublk.com, 390 x 844 viewport). No other users' data.
+// false until the screens are captured from a farmer test account (BLOCKED.md). While false the
+// page shows photos in their place and the hero phone mockup is off. Nothing fake ships.
+export const screensReady = false;
 export type Screen = { name: string; alt: string };
 export const screens = {
   diagPhoto: { name: "screen-diagnosis-photo", alt: "GoviHub crop diagnosis screen with a photo of a sick spice leaf" },
