@@ -32,3 +32,14 @@
 - DECISION: Only two real before and after pairs qualify (saree, shalwar kameez). Two outputs (dress, children) appear alone on module cards because their inputs were a drawing and a third-party flat lay. The bag output was archived because a drawn T-shirt fixture produced a T-shirt-shaped bag. Fit-on samples were skipped because they show a family member without recorded consent.
 - DECISION: Playwright is not in the repo and was not installed. Screenshots were taken with headless Edge over the DevTools protocol.
 - DECISION: Retired files go to `_archive/` and pre-edit copies to `_backup/`. Both are git-ignored.
+
+## Code review (fresh reviewer, commit 3ebc450) and what changed
+
+- Fixed: slider focus ring was clipped. The ring now sits on the slider frame (`has-[:focus-visible]`). Browser check confirms a gold ring.
+- Fixed: motion under reduced motion. Smooth scroll turns off, the FAQ plus sign and the nav dropdown animate only with `motion-safe`.
+- Fixed: `/products/drapestudio/` returned 403 because a public asset folder shared the route name. Assets moved to `/img/drapestudio/` with `git mv`. Smoke test now checks the trailing slash. nginx.conf untouched.
+- Fixed: touch drag on iOS Safari. Pointer events on the frame drive the slider. The native range input stays for keyboard and screen readers. Verified with mouse and emulated touch drags in Edge. Not verified on a physical iPhone.
+- Fixed: count-up no longer flashes from the final value to 0. MirrorMe tiles stack until `lg`. Safari details marker hidden. Unused lockup files archived. Dark-section eyebrow moved to a higher-contrast gold. Reveal now waits for hydration, so a failed script never hides content.
+- Kept: "Sample coming soon" frames. The brief requires them where no real image exists. Fill them before deploy (list in the claims doc).
+- Open for Nuwan: native review of the Sinhala tagline. Canonical company name across the site.
+- Not done (minor, noted): Escape to close the nav dropdown, a mobile nav menu (pre-existing gap), and `webp` in the nginx cache rule.

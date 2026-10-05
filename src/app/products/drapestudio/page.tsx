@@ -32,7 +32,7 @@ import {
 
 const sinhala = Noto_Sans_Sinhala({ subsets: ["sinhala"], display: "swap" });
 
-const OG_IMAGE = { url: `${PAGE_PATH}/og-drapestudio-1200x630.jpg`, width: 1200, height: 630, alt: meta.ogAlt };
+const OG_IMAGE = { url: "/img/drapestudio/og-drapestudio-1200x630.jpg", width: 1200, height: 630, alt: meta.ogAlt };
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -61,6 +61,7 @@ const jsonLd = [
     "@id": ORG_ID,
     name: "AIgnite Software (Private) Limited",
     legalName: "AIgnite Software (Private) Limited",
+    alternateName: "AiGNITE Software (Pvt) Ltd",
     url: "https://aignitelk.com",
     identifier: { "@type": "PropertyValue", propertyID: "Sri Lanka company number", value: "PV 00362580" },
     address: { "@type": "PostalAddress", addressLocality: "Colombo", addressCountry: "LK" },
@@ -287,7 +288,7 @@ export default function DrapeStudioPage() {
         {/* 3. How it works */}
         <section aria-labelledby="how-title" className="ds-mesh-dark py-16 text-white md:py-20">
           <div className="reveal mx-auto max-w-6xl px-6">
-            <Eyebrow tone="text-ds-gold-light">{steps.eyebrow}</Eyebrow>
+            <Eyebrow tone="text-ds-gold-pale">{steps.eyebrow}</Eyebrow>
             <h2 id="how-title" className="mt-3 font-heading text-3xl font-bold sm:text-4xl">
               {steps.title}
             </h2>
@@ -394,7 +395,7 @@ export default function DrapeStudioPage() {
             <div className="mt-10 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
               <div className="ds-mesh-dark relative overflow-hidden rounded-3xl border border-ds-gold/60 p-6 text-white shadow-lk-3 outline outline-1 outline-offset-4 outline-ds-gold/40">
                 <div className="flex items-center justify-between">
-                  <p className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-ds-gold-light">{pricing.walletLabel}</p>
+                  <p className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-ds-gold-pale">{pricing.walletLabel}</p>
                   <Image src={brandSrc("drapestudio-monogram-white-256.webp")} alt="" width={256} height={256} className="h-10 w-10" />
                 </div>
                 <p className="mt-8 font-heading text-5xl font-bold tracking-tight">
@@ -497,7 +498,7 @@ export default function DrapeStudioPage() {
                 {mirrorme.title}
               </h2>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-mm-text-2">{mirrorme.sub}</p>
-              <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+              <ul className="mt-8 grid gap-4 lg:grid-cols-3">
                 {mirrorme.tiles.map((t, i) => (
                   <li key={t.title} className="rounded-2xl border border-white/10 bg-mm-surface p-4">
                     <Icon d={[icons.user, icons.photo, icons.sliders][i]} className={`h-7 w-7 ${i === 1 ? "text-mm-accent" : "text-mm-primary"}`} />
@@ -602,9 +603,9 @@ export default function DrapeStudioPage() {
             <div className="mt-10 space-y-3">
               {faq.items.map((f) => (
                 <details key={f.q} className="group rounded-2xl border border-border bg-white p-5 shadow-lk-1 open:border-ds-gold">
-                  <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ds-ink">
+                  <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ds-ink [&::-webkit-details-marker]:hidden">
                     {f.q}
-                    <span aria-hidden className="text-xl text-ds-gold transition-transform group-open:rotate-45">
+                    <span aria-hidden className="text-xl text-ds-gold group-open:rotate-45 motion-safe:transition-transform">
                       +
                     </span>
                   </summary>

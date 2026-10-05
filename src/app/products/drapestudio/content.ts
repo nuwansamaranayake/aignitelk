@@ -14,8 +14,9 @@ export const meta = {
 
 export type Shot = { name: string; alt: string; width: number; height: number };
 
-export const shotSrc = (s: Shot, width: 480 | 896) => `/products/drapestudio/results/${s.name}-${width}.webp`;
-export const brandSrc = (file: string) => `/products/drapestudio/brand/${file}`;
+// Assets live under /img so no public folder shares the page route (nginx would 403 /products/drapestudio/).
+export const shotSrc = (s: Shot, width: 480 | 896) => `/img/drapestudio/results/${s.name}-${width}.webp`;
+export const brandSrc = (file: string) => `/img/drapestudio/brand/${file}`;
 
 // Real DrapeStudio outputs (DrapeStudio-v2/output/2026-06-14/generation). Inputs padded to 3:4.
 export const shots = {

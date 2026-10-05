@@ -13,6 +13,7 @@ export default function CountUp({ value, prefix = "Rs. " }: { value: number; pre
   useEffect(() => {
     const el = ref.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setShown(0);
     let raf = 0;
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -24,7 +25,6 @@ export default function CountUp({ value, prefix = "Rs. " }: { value: number; pre
           setShown(Math.round(value * (1 - Math.pow(1 - p, 3))));
           if (p < 1) raf = requestAnimationFrame(tick);
         };
-        setShown(0);
         raf = requestAnimationFrame(tick);
       },
       { threshold: 0.6 },
@@ -38,7 +38,7 @@ export default function CountUp({ value, prefix = "Rs. " }: { value: number; pre
 
   return (
     <span ref={ref}>
-      <span aria-hidden>
+      <span aria-hidden className="tabular-nums">
         {prefix}
         {fmt(shown)}
       </span>

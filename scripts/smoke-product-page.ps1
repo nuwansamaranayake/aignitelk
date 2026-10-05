@@ -46,6 +46,9 @@ Check 'page 200' ($res -ne $null -and $res.StatusCode -eq 200) $pageUrl
 if ($res -eq $null) { Write-Output 'Page unreachable, stopping.'; exit 1 }
 $html = $res.Content
 $text = Get-VisibleText $html
+$slashCode = 0
+try { $slashCode = (Invoke-WebRequest -Uri ($pageUrl + '/') -UseBasicParsing -TimeoutSec 20).StatusCode } catch { if ($_.Exception.Response) { $slashCode = [int]$_.Exception.Response.StatusCode } }
+Check 'trailing slash is not an error' ($slashCode -eq 200) ("status=" + $slashCode)
 $decodedHtml = [System.Net.WebUtility]::HtmlDecode($html)
 
 $h1s = [regex]::Matches($html, '(?is)<h1[^>]*>(.*?)</h1>')

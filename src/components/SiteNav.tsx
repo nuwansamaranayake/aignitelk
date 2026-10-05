@@ -21,7 +21,7 @@ export default function SiteNav() {
             <a href="/#products" className="transition-colors hover:text-lk-maroon">
               Products
             </a>
-            <div className="invisible absolute left-1/2 top-full z-10 -translate-x-1/2 pt-3 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+            <div className="invisible absolute left-1/2 top-full z-10 -translate-x-1/2 pt-3 opacity-0 motion-safe:transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
               <div className="w-60 rounded-xl border border-border bg-bg-surface p-2 shadow-lk-2">
                 <a href="/#products" className="block rounded-lg px-3 py-2 hover:bg-bg-alt hover:text-lk-maroon">
                   All products
