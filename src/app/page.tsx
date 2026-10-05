@@ -1,4 +1,5 @@
 import Image from "next/image";
+import LkLogo from "@/components/LkLogo";
 
 const products: { name: string; description: string; url?: string; docsUrl?: string; icon: React.ReactNode }[] = [
   {
@@ -54,30 +55,25 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/90 backdrop-blur-md">
+        <div className="h-[3px] bg-stripe" />
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <Image
-              src="/logos/AiGNITE_Final_Logo_Dark.png"
-              alt="AiGNITE Software"
-              width={140}
-              height={40}
-              priority
-            />
+            <LkLogo size={40} />
           </div>
           <div className="hidden items-center gap-8 text-sm text-text-muted sm:flex">
-            <a href="#about" className="transition-colors hover:text-text-primary">
+            <a href="#about" className="transition-colors hover:text-lk-maroon">
               About
             </a>
-            <a href="#products" className="transition-colors hover:text-text-primary">
+            <a href="#products" className="transition-colors hover:text-lk-maroon">
               Products
             </a>
-            <a href="#team" className="transition-colors hover:text-text-primary">
+            <a href="#team" className="transition-colors hover:text-lk-maroon">
               Team
             </a>
             <a
               href="#contact"
-              className="rounded-lg bg-brand-green-deep px-4 py-2 text-text-primary transition-colors hover:bg-brand-green-dark"
+              className="rounded-lg bg-lk-maroon px-4 py-2 text-white transition-colors hover:bg-lk-maroon-deep"
             >
               Contact
             </a>
@@ -89,27 +85,22 @@ export default function Home() {
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
         {/* Background gradient */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-green/10 blur-3xl" />
-          <div className="absolute right-1/4 top-1/3 h-64 w-64 rounded-full bg-brand-gold/5 blur-3xl" />
+          <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-lk-saffron/10 blur-3xl" />
+          <div className="absolute right-1/4 top-1/3 h-64 w-64 rounded-full bg-lk-maroon/5 blur-3xl" />
         </div>
 
         <div className="section-container relative text-center">
           <div className="animate-fade-in">
-            <Image
-              src="/logos/AiGNITE_Final_Logo_Dark.png"
-              alt="AiGNITE Software"
-              width={280}
-              height={80}
-              className="mx-auto mb-8"
-              priority
-            />
-            <p className="mb-4 font-mono text-sm uppercase tracking-widest text-brand-green">
+            <div className="mb-8 flex justify-center">
+              <LkLogo size={72} />
+            </div>
+            <p className="mb-4 font-heading text-sm font-semibold uppercase tracking-[0.2em] text-lk-maroon">
               Software (Pvt) Ltd
             </p>
             <h1 className="font-heading text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
               AI-Powered Software
               <br />
-              <span className="text-gradient-green">Solutions from Sri Lanka</span>
+              <span className="text-lk-maroon">Solutions from Sri Lanka</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-text-muted">
               Combining Silicon Valley engineering standards with deep local domain
@@ -118,13 +109,13 @@ export default function Home() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="#products"
-                className="rounded-lg bg-brand-green px-8 py-3 font-semibold text-bg transition-colors hover:bg-brand-green-dark"
+                className="rounded-lg bg-lk-maroon px-8 py-3 font-semibold text-white transition-colors hover:bg-lk-maroon-deep"
               >
                 Our Products
               </a>
               <a
                 href="#about"
-                className="rounded-lg border border-border-light px-8 py-3 font-semibold text-text-primary transition-colors hover:bg-bg-surface"
+                className="rounded-lg border border-lk-maroon px-8 py-3 font-semibold text-lk-maroon transition-colors hover:bg-lk-maroon/5"
               >
                 Learn More
               </a>
@@ -138,7 +129,7 @@ export default function Home() {
         <div className="section-container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-heading text-3xl font-bold sm:text-4xl">
-              About <span className="text-gradient-green">AiGNITE Software</span>
+              About <span className="text-lk-maroon">AiGNITE Software</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-text-muted">
               AiGNITE Software (Pvt) Ltd is the Sri Lankan arm of the AiGNITE
@@ -149,13 +140,13 @@ export default function Home() {
             </p>
             <div className="glass-card mx-auto mt-10 max-w-2xl p-6">
               <p className="text-sm leading-relaxed text-text-muted">
-                <span className="text-brand-gold">●</span>{" "}
+                <span className="text-lk-saffron">●</span>{" "}
                 AiGNITE Software (Pvt) Ltd operates as a sister company to{" "}
                 <a
                   href="https://aigniteconsulting.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-green transition-colors hover:text-brand-green-dark"
+                  className="text-lk-maroon transition-colors hover:text-lk-maroon-deep"
                 >
                   AiGNITE Consulting LLC
                 </a>{" "}
@@ -172,7 +163,7 @@ export default function Home() {
         <div className="section-container">
           <div className="text-center">
             <h2 className="font-heading text-3xl font-bold sm:text-4xl">
-              Our <span className="text-gradient-green">Products</span>
+              Our <span className="text-lk-maroon">Products</span>
             </h2>
             <p className="mt-4 text-text-muted">
               Intelligent solutions for Sri Lankan markets
@@ -181,7 +172,7 @@ export default function Home() {
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {products.map((product) => (
               <div key={product.name} className="glass-card-hover p-8">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-lk-maroon/10 text-lk-maroon">
                   {product.icon}
                 </div>
                 <h3 className="font-heading text-xl font-semibold">
@@ -197,7 +188,7 @@ export default function Home() {
                         href={product.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-brand-green transition-colors hover:text-brand-green-dark"
+                        className="inline-flex items-center gap-1 text-sm text-lk-maroon transition-colors hover:text-lk-maroon-deep"
                       >
                         Visit →
                       </a>
@@ -207,7 +198,7 @@ export default function Home() {
                         href={product.docsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-brand-gold transition-colors hover:text-brand-gold-light"
+                        className="inline-flex items-center gap-1 text-sm text-lk-teal transition-colors hover:text-lk-teal-soft"
                       >
                         Learn the concept →
                       </a>
@@ -224,7 +215,7 @@ export default function Home() {
       <section id="team" className="border-t border-border">
         <div className="section-container">
           <h2 className="text-center font-heading text-3xl font-bold sm:text-4xl">
-            Our <span className="text-gradient-green">Team</span>
+            Our <span className="text-lk-maroon">Team</span>
           </h2>
 
           {/* Nuwan - Featured */}
@@ -240,13 +231,13 @@ export default function Home() {
                 />
               </div>
               <div className="p-8">
-                <p className="text-xs font-medium uppercase tracking-wider text-brand-gold">
+                <p className="text-xs font-medium uppercase tracking-wider text-lk-maroon">
                   Principal Software Architect & Mentor
                 </p>
                 <h3 className="mt-2 font-heading text-2xl font-bold">
                   Nuwan Samaranayake
                 </h3>
-                <p className="mt-1 text-sm text-brand-green">
+                <p className="mt-1 text-sm text-lk-teal">
                   Founder/CEO, AiGNITE Consulting LLC, Houston TX
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-text-muted">
@@ -256,7 +247,7 @@ export default function Home() {
                   {["AI/ML", "Multi-Agent Systems", "Full Stack", "Cloud Architecture", "Python", "TypeScript"].map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-border-light bg-bg-surface px-3 py-1 text-xs text-text-dim"
+                      className="rounded-full border border-border-light bg-bg-alt px-3 py-1 text-xs text-text-muted"
                     >
                       {skill}
                     </span>
@@ -265,7 +256,7 @@ export default function Home() {
                 <div className="mt-4 flex items-center gap-4">
                   <a
                     href="mailto:nuwan@aigniteconsulting.ai"
-                    className="text-sm text-text-muted transition-colors hover:text-brand-green"
+                    className="text-sm text-text-muted transition-colors hover:text-lk-maroon"
                   >
                     nuwan@aigniteconsulting.ai
                   </a>
@@ -273,7 +264,7 @@ export default function Home() {
                     href="https://www.linkedin.com/in/nuwan-samaranayake-8a50388/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-text-muted transition-colors hover:text-brand-green"
+                    className="text-sm text-text-muted transition-colors hover:text-lk-maroon"
                   >
                     LinkedIn
                   </a>
@@ -295,13 +286,13 @@ export default function Home() {
                 />
               </div>
               <div className="p-8">
-                <p className="text-xs font-medium uppercase tracking-wider text-brand-gold">
+                <p className="text-xs font-medium uppercase tracking-wider text-lk-maroon">
                   Director
                 </p>
                 <h3 className="mt-2 font-heading text-2xl font-bold">
                   Aruni Samaranayake
                 </h3>
-                <p className="mt-1 text-sm text-brand-green">
+                <p className="mt-1 text-sm text-lk-teal">
                   AiGNITE Software (Pvt) Ltd, Sri Lanka
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-text-muted">
@@ -311,7 +302,7 @@ export default function Home() {
                   {["Information Technology", "Business Operations", "Research & Analysis"].map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-border-light bg-bg-surface px-3 py-1 text-xs text-text-dim"
+                      className="rounded-full border border-border-light bg-bg-alt px-3 py-1 text-xs text-text-muted"
                     >
                       {skill}
                     </span>
@@ -327,14 +318,14 @@ export default function Home() {
       <section id="contact" className="border-t border-border bg-bg-alt">
         <div className="section-container text-center">
           <h2 className="font-heading text-3xl font-bold sm:text-4xl">
-            Get in <span className="text-gradient-green">Touch</span>
+            Get in <span className="text-lk-maroon">Touch</span>
           </h2>
           <p className="mt-4 text-text-muted">
             Interested in our products or looking to collaborate?
           </p>
           <a
             href="mailto:aruni@aigniteconsulting.ai"
-            className="mt-8 inline-block rounded-lg bg-brand-green px-8 py-3 font-semibold text-bg transition-colors hover:bg-brand-green-dark"
+            className="mt-8 inline-block rounded-lg bg-lk-maroon px-8 py-3 font-semibold text-white transition-colors hover:bg-lk-maroon-deep"
           >
             aruni@aigniteconsulting.ai
           </a>
@@ -342,23 +333,24 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border">
+      <footer className="bg-lk-maroon-deep">
+        <div className="h-1 bg-stripe" />
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-          <p className="text-sm text-text-dim">
+          <p className="text-sm text-lk-sand-2">
             © 2025 AiGNITE Software (Pvt) Ltd. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-text-dim">
+          <div className="flex items-center gap-6 text-sm text-lk-sand-2">
             <a
               href="https://aigniteconsulting.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-text-muted"
+              className="transition-colors hover:text-lk-gold"
             >
               AiGNITE Consulting LLC
             </a>
             <a
               href="mailto:aruni@aigniteconsulting.ai"
-              className="transition-colors hover:text-text-muted"
+              className="transition-colors hover:text-lk-gold"
             >
               aruni@aigniteconsulting.ai
             </a>

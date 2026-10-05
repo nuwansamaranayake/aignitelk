@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Sora, Noto_Sans } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-sora",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-noto-sans",
   display: "swap",
 });
 
@@ -60,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+      className={`${sora.variable} ${notoSans.variable}`}
     >
       <body className="font-body antialiased">{children}</body>
     </html>

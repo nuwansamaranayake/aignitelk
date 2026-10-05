@@ -9,36 +9,49 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          green: '#2ecc71',
-          'green-dark': '#1a9c54',
-          'green-deep': '#0d7c3e',
-          red: '#e74c3c',
-          'red-dark': '#c0392b',
-          gold: '#D4A843',
-          'gold-light': '#E8C560',
-          'gold-dark': '#B8892A',
+        // AiGNITE Software (Sri Lanka) palette, from the AiGNITE Design System "aignite-lk" theme
+        lk: {
+          maroon: '#8D153A',
+          'maroon-deep': '#5E0E27',
+          'maroon-soft': '#B8475F',
+          saffron: '#EB7400',
+          gold: '#FFBE29',
+          teal: '#00534E',
+          'teal-soft': '#2E7A73',
+          paper: '#FBF7F0',
+          sand: '#F3EBDD',
+          'sand-2': '#E8DCC6',
+          ink: '#1F1517',
+          'ink-2': '#4A3C3E',
+          'ink-3': '#7A6A68',
         },
         bg: {
-          DEFAULT: '#0a0f0d',
-          alt: '#0f1714',
-          surface: '#141e19',
-          'surface-hover': '#1a2b23',
+          DEFAULT: '#FBF7F0',
+          alt: '#F3EBDD',
+          surface: '#FFFFFF',
         },
         text: {
-          primary: '#e8f0ec',
-          muted: '#8fa89b',
-          dim: '#5c7a6a',
+          primary: '#1F1517',
+          muted: '#4A3C3E',
+          dim: '#7A6A68',
         },
         border: {
-          DEFAULT: '#1e3329',
-          light: '#2a4a3a',
+          DEFAULT: 'rgba(31,21,23,0.08)',
+          light: 'rgba(31,21,23,0.16)',
         },
       },
+      backgroundImage: {
+        stripe:
+          'linear-gradient(90deg, #8D153A 0 25%, #FFBE29 25% 50%, #EB7400 50% 75%, #00534E 75% 100%)',
+      },
+      boxShadow: {
+        'lk-1': '0 1px 2px rgba(94,14,39,0.06)',
+        'lk-2': '0 6px 20px rgba(94,14,39,0.08)',
+        'lk-3': '0 18px 44px rgba(94,14,39,0.14)',
+      },
       fontFamily: {
-        heading: ['var(--font-outfit)', 'sans-serif'],
-        body: ['var(--font-dm-sans)', 'sans-serif'],
-        mono: ['var(--font-jetbrains)', 'monospace'],
+        heading: ['var(--font-sora)', 'sans-serif'],
+        body: ['var(--font-noto-sans)', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
