@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px; /* fixed nav height, so anchor targets are not hidden */
 }
 
 body {

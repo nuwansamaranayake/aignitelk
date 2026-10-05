@@ -14,10 +14,11 @@ const notoSans = Noto_Sans({
   display: "swap",
 });
 
+// 1200x630 share card with the full, uncropped award photo (platforms centre-crop portrait images)
 const awardImage = {
-  url: "/award/aruni_with_award-1200.jpg",
+  url: "/award/aruni_with_award-share-1200x630.jpg",
   width: 1200,
-  height: 1800,
+  height: 630,
   alt: "Aruni Samaranayake of AiGNITE Sri Lanka holding the Digital Innovation Impact Pioneer award at the Global Digital Trade Expo, Hangzhou, September 2026",
 };
 

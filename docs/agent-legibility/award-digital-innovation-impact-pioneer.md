@@ -44,7 +44,7 @@ Main risk: association drift. Summaries can flatten "a programme organised by th
 - The headline is the page's single `h1`. The old hero heading becomes an `h2`, with its content kept.
 - Organization JSON-LD `award`: "Digital Innovation Impact Pioneer, Global Digital Trade Expo, Hangzhou, September 2026".
 - The meta description gains one short award sentence.
-- The OG/Twitter image is the 1200px award photo (JPG for broad crawler support).
+- The OG/Twitter image is a 1200x630 share card: the full, uncropped award photo next to the approved headline. This deviates from the brief's "1200px award photo" because Facebook, LinkedIn and X centre-crop portrait images to about 1.91:1, which would cut the head and the photographer's watermark.
 - Descriptive alt text, copied verbatim from the brief.
 
 ## 7. Technical deliverables backlog

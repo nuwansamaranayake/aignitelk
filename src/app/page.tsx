@@ -150,7 +150,7 @@ export default function Home() {
             </div>
           </div>
           <div className="order-1 flex justify-center md:order-2">
-            <picture>
+            <picture className="block w-full">
               <source
                 type="image/webp"
                 srcSet="/award/aruni_with_award-480.webp 480w, /award/aruni_with_award-800.webp 800w, /award/aruni_with_award-1200.webp 1200w"
@@ -164,7 +164,7 @@ export default function Home() {
                 height={1800}
                 loading="eager"
                 fetchPriority="high"
-                className="h-auto w-full max-w-full rounded-xl border border-border shadow-lk-2 md:max-h-[calc(100vh-130px)] md:w-auto"
+                className="mx-auto h-auto w-full max-w-[min(100%,calc(58svh*2/3))] rounded-xl border border-border shadow-lk-2 md:max-w-[min(100%,calc((100svh_-_148px)*2/3))]"
               />
             </picture>
           </div>
