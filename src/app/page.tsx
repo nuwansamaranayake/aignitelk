@@ -51,9 +51,28 @@ const products: { name: string; description: string; url?: string; docsUrl?: str
   },
 ];
 
+const awardStats = [
+  ["33", "enterprises selected"],
+  ["22", "developing countries"],
+  ["1", "Sri Lankan company in the cohort"],
+];
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "AiGNITE Software (Pvt) Ltd",
+  url: "https://aignitelk.com",
+  logo: "https://aignitelk.com/favicon-192.png",
+  award: "Digital Innovation Impact Pioneer, Global Digital Trade Expo, Hangzhou, September 2026",
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/90 backdrop-blur-md">
         <div className="h-[3px] bg-stripe" />
@@ -81,8 +100,79 @@ export default function Home() {
         </div>
       </nav>
 
+      {/* Award (first section, directly under the fixed nav) */}
+      <section id="award" className="pt-[84px]">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-6 py-6 md:grid-cols-[1.15fr_0.85fr] md:gap-12 md:py-8">
+          <div className="order-2 md:order-1">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">
+              International recognition
+            </p>
+            <h1 className="mt-3 font-heading text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+              Digital Innovation Impact Pioneer
+            </h1>
+            <p className="mt-4 text-lg leading-relaxed text-text-primary">
+              AiGNITE Sri Lanka was recognised at the Global Digital Trade Expo in Hangzhou, China, in September 2026.
+            </p>
+            <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-text-muted">
+              <p>
+                Our GoviHub platform, an AI marketplace that connects Sri Lankan farmers directly to buyers, received the Digital Innovation Impact Pioneer award at the International Youth OPC Co-Creation Dialogue.
+              </p>
+              <p>
+                The programme was organised by the International Trade Centre, a joint agency of the United Nations and the World Trade Organization, together with the Global SDGs and Leadership Development Center and the China International Youth Exchange Center.
+              </p>
+              <p>
+                Aruni Samaranayake, our Director of Operations, accepted the award in Hangzhou on behalf of the company.
+              </p>
+            </div>
+            <div className="mt-6 grid grid-cols-3 divide-x divide-border-light border-y border-border-light py-4">
+              {awardStats.map(([value, label]) => (
+                <div key={label} className="px-3 first:pl-0 sm:px-5">
+                  <p className="font-heading text-3xl font-bold text-lk-maroon">{value}</p>
+                  <p className="mt-1 text-xs leading-snug text-text-muted sm:text-sm">{label}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://govihublk.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg bg-lk-maroon px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-lk-maroon-deep"
+              >
+                Explore GoviHub
+              </a>
+              <a
+                href="#contact"
+                className="rounded-lg border border-lk-maroon px-6 py-3 text-center font-semibold text-lk-maroon transition-colors hover:bg-lk-maroon/5"
+              >
+                Work with us
+              </a>
+            </div>
+          </div>
+          <div className="order-1 flex justify-center md:order-2">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/award/aruni_with_award-480.webp 480w, /award/aruni_with_award-800.webp 800w, /award/aruni_with_award-1200.webp 1200w"
+                sizes="(min-width: 1152px) 448px, (min-width: 768px) 40vw, calc(100vw - 48px)"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export: responsive WebP via <picture> */}
+              <img
+                src="/award/aruni_with_award-1200.jpg"
+                alt="Aruni Samaranayake of AiGNITE Sri Lanka holding the Digital Innovation Impact Pioneer award at the Global Digital Trade Expo, Hangzhou, September 2026"
+                width={1200}
+                height={1800}
+                loading="eager"
+                fetchPriority="high"
+                className="h-auto w-full max-w-full rounded-xl border border-border shadow-lk-2 md:max-h-[calc(100vh-130px)] md:w-auto"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
+
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
+      <section className="relative overflow-hidden border-t border-border">
         {/* Background gradient */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-lk-saffron/10 blur-3xl" />
@@ -97,11 +187,11 @@ export default function Home() {
             <p className="mb-4 font-heading text-sm font-semibold uppercase tracking-[0.2em] text-lk-maroon">
               Software (Pvt) Ltd
             </p>
-            <h1 className="font-heading text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+            <h2 className="font-heading text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
               AI-Powered Software
               <br />
               <span className="text-lk-maroon">Solutions from Sri Lanka</span>
-            </h1>
+            </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-text-muted">
               Combining Silicon Valley engineering standards with deep local domain
               knowledge to deliver intelligent software that solves real problems.
@@ -146,7 +236,7 @@ export default function Home() {
                   href="https://aigniteconsulting.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lk-maroon transition-colors hover:text-lk-maroon-deep"
+                  className="text-lk-maroon underline underline-offset-2 transition-colors hover:text-lk-maroon-deep"
                 >
                   AiGNITE Consulting LLC
                 </a>{" "}
@@ -278,7 +368,7 @@ export default function Home() {
             <div className="glass-card overflow-hidden sm:flex">
               <div className="flex-shrink-0 sm:w-56">
                 <Image
-                  src="/team/aruni.jpg"
+                  src="/team/aruni_profile.png"
                   alt="Aruni Samaranayake"
                   width={224}
                   height={280}
@@ -287,7 +377,7 @@ export default function Home() {
               </div>
               <div className="p-8">
                 <p className="text-xs font-medium uppercase tracking-wider text-lk-maroon">
-                  Director
+                  Director of Operations
                 </p>
                 <h3 className="mt-2 font-heading text-2xl font-bold">
                   Aruni Samaranayake

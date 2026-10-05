@@ -14,10 +14,18 @@ const notoSans = Noto_Sans({
   display: "swap",
 });
 
+const awardImage = {
+  url: "/award/aruni_with_award-1200.jpg",
+  width: 1200,
+  height: 1800,
+  alt: "Aruni Samaranayake of AiGNITE Sri Lanka holding the Digital Innovation Impact Pioneer award at the Global Digital Trade Expo, Hangzhou, September 2026",
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aignitelk.com"),
   title: "AiGNITE Software (Pvt) Ltd — AI-Powered Software Solutions from Sri Lanka",
   description:
-    "AiGNITE Software (Pvt) Ltd is the Sri Lankan arm of the AiGNITE ecosystem, building AI-powered products for local and regional markets.",
+    "Recognised as a Digital Innovation Impact Pioneer in Hangzhou, September 2026. AiGNITE Software (Pvt) Ltd is the Sri Lankan arm of the AiGNITE ecosystem, building AI-powered products for local and regional markets.",
   keywords: [
     "AiGNITE",
     "AI software",
@@ -43,6 +51,11 @@ export const metadata: Metadata = {
     siteName: "AiGNITE Software",
     locale: "en_US",
     type: "website",
+    images: [awardImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [awardImage],
   },
 };
 
