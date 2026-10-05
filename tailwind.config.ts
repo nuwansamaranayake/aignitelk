@@ -69,6 +69,24 @@ const config: Config = {
           page: '#F8FAFC',
           line: '#E2E8F0',
         },
+        // ScanPass accents, from the ScanPass Design System (tokens/colors.css) and live scanpasslk.com CSS.
+        // Contrast rule: aqua, apricot and hold never carry text on white.
+        sp: {
+          teal: '#0E7490',
+          'teal-deep': '#0C6077',
+          night: '#083344',
+          'teal-soft': '#CCF2F8',
+          'teal-pale': '#EDFCFE',
+          terra: '#B45309',
+          'terra-deep': '#92400E',
+          'terra-soft': '#FEF3C7',
+          aqua: '#5EEAD4',
+          apricot: '#FDBA74',
+          ink: '#1F2937',
+          go: '#16A34A',
+          stop: '#DC2626',
+          hold: '#F59E0B',
+        },
         bg: {
           DEFAULT: '#FBF7F0',
           alt: '#F3EBDD',
