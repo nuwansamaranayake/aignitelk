@@ -1,7 +1,8 @@
 import { payslip, rs } from "@/app/products/primepath/content";
 
 // Coded demo payslip (HTML and CSS, not an image). Used in the hero, the compare slider and the OG card.
-export default function PayslipCard({ className = "" }: { className?: string }) {
+// compact drops the ID fields and the employer block so net pay fits the compare frame on phones.
+export default function PayslipCard({ className = "", compact = false }: { className?: string; compact?: boolean }) {
   const gross = payslip.earnings.reduce((s, e) => s + e.amount, 0);
   const totalDeductions = payslip.deductions.reduce((s, d) => s + d.amount, 0);
   const net = gross - totalDeductions;
@@ -21,14 +22,16 @@ export default function PayslipCard({ className = "" }: { className?: string }) 
           <p className="font-heading text-lg font-bold">{payslip.employee}</p>
           <p className="text-xs text-pp-navy-600">{payslip.designation}</p>
         </div>
-        <dl className="mt-2 grid grid-cols-3 gap-2 text-[11px]">
-          {payslip.fields.map((f) => (
-            <div key={f.label} className="rounded-md bg-pp-navy-50 px-2 py-1">
-              <dt className="text-pp-navy-600">{f.label}</dt>
-              <dd className="font-semibold tabular-nums">{f.value}</dd>
-            </div>
-          ))}
-        </dl>
+        {!compact && (
+          <dl className="mt-2 grid grid-cols-3 gap-2 text-[11px]">
+            {payslip.fields.map((f) => (
+              <div key={f.label} className="rounded-md bg-pp-navy-50 px-2 py-1">
+                <dt className="text-pp-navy-600">{f.label}</dt>
+                <dd className="font-semibold tabular-nums">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
 
         <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.14em] text-pp-accent-deep">{payslip.earningsTitle}</p>
         <ul className="mt-1 space-y-1 text-sm">
@@ -63,17 +66,19 @@ export default function PayslipCard({ className = "" }: { className?: string }) 
           <span className="font-heading text-2xl font-bold tabular-nums text-pp-accent">{rs(net)}</span>
         </div>
 
-        <div className="mt-3 rounded-xl border border-dashed border-pp-accent bg-pp-accent-soft px-4 py-2.5">
-          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-pp-accent-deep">{payslip.employerTitle}</p>
-          <ul className="mt-1 space-y-1 text-sm">
-            {payslip.employer.map((e) => (
-              <li key={e.label} className="flex justify-between gap-3">
-                <span>{e.label}</span>
-                <span className="font-semibold tabular-nums">{rs(e.amount)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {!compact && (
+          <div className="mt-3 rounded-xl border border-dashed border-pp-accent bg-pp-accent-soft px-4 py-2.5">
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-pp-accent-deep">{payslip.employerTitle}</p>
+            <ul className="mt-1 space-y-1 text-sm">
+              {payslip.employer.map((e) => (
+                <li key={e.label} className="flex justify-between gap-3">
+                  <span>{e.label}</span>
+                  <span className="font-semibold tabular-nums">{rs(e.amount)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

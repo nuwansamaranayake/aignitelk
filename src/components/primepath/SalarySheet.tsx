@@ -59,7 +59,8 @@ export default function SalarySheet() {
         </tbody>
       </table>
       <div className="flex-1 bg-[linear-gradient(#e2e8f0_1px,transparent_1px)] bg-[length:auto_1.6rem]" />
-      <p className="m-3 rounded-lg bg-red-700 px-3 py-2 text-xs font-semibold text-white">{sheet.note}</p>
+      {/* Kept in the left 58% so the note stays readable at the slider start position. */}
+      <p className="m-3 max-w-[54%] rounded-lg bg-red-700 px-3 py-2 text-xs font-semibold text-white">{sheet.note}</p>
     </div>
   );
 }

@@ -58,4 +58,5 @@ Run `scripts/check-copy-primepath.ps1`. Nothing on the page names AI, Tamil, pri
 Lanka Spice Traders (Pvt) Ltd, K. Perera, S. Fernando, R. Silva and N. Jayasinghe are fictional. NIC and EPF numbers are masked. Payslip math follows the PrimePath formulas:
 - Overtime is 100,000 / 240 x 1.5 x 12 h = 7,500.
 - EPF is 8% of basic = 8,000.
+- Net pay is 99,500, the same as K. Perera's row in the demo salary sheet.
 - The payslip shows no APIT line.

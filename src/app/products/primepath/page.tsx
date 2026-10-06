@@ -308,9 +308,9 @@ export default function PrimePathPage() {
                   </div>
                 }
                 afterNode={
-                  <div role="img" aria-label={compare.afterAlt} className="h-full bg-pp-navy-50 px-4 pb-4 pt-12">
+                  <div role="img" aria-label={compare.afterAlt} className="h-full bg-pp-navy-50 px-4 pb-4 pt-11">
                     <div aria-hidden>
-                      <PayslipCard className="shadow-lk-2" />
+                      <PayslipCard compact className="shadow-lk-2" />
                     </div>
                   </div>
                 }
@@ -318,7 +318,7 @@ export default function PrimePathPage() {
                 afterLabel={compare.afterLabel}
                 sliderLabel={compare.sliderLabel}
                 theme={compareTheme}
-                aspect="aspect-[4/5] sm:aspect-[3/4]"
+                aspect="aspect-[3/5] sm:aspect-[3/4]"
                 initial={64}
               />
               <p className="mt-2 text-center text-sm text-text-muted">{compare.caption}</p>

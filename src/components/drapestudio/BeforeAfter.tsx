@@ -21,12 +21,12 @@ const dsTheme: CompareTheme = {
   caption: "text-ds-emerald",
 };
 
-type Props = {
-  // Photos (DrapeStudio) or coded mocks (beforeNode / afterNode).
-  before?: Shot;
-  after?: Shot;
-  beforeNode?: ReactNode;
-  afterNode?: ReactNode;
+// Either a photo pair (DrapeStudio) or a pair of coded mocks, never neither.
+type Sides =
+  | { before: Shot; after: Shot; beforeNode?: never; afterNode?: never }
+  | { beforeNode: ReactNode; afterNode: ReactNode; before?: never; after?: never };
+
+type Props = Sides & {
   beforeLabel: string;
   afterLabel: string;
   sliderLabel: string;

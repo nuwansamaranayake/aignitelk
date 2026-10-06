@@ -53,10 +53,8 @@ export const payslip = {
   ],
   grossLabel: "Gross pay",
   deductionsTitle: "Deductions",
-  deductions: [
-    { label: "EPF employee 8%", amount: 8000 },
-    { label: "Salary advance", amount: 5000 },
-  ],
+  // Matches row 2 of the demo salary sheet: net 99,500 on both sides of the compare slider.
+  deductions: [{ label: "EPF employee 8%", amount: 8000 }],
   totalDeductionsLabel: "Total deductions",
   netLabel: "Net pay",
   employerTitle: "Employer contributions",

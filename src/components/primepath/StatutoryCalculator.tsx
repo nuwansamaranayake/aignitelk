@@ -27,7 +27,7 @@ export default function StatutoryCalculator() {
           value={earnings}
           onChange={(e) => setEarnings(Number(e.target.value))}
           aria-valuetext={rs(earnings)}
-          style={{ background: `linear-gradient(90deg, #E7B041 ${fill}%, rgb(255 255 255 / 0.2) ${fill}%)` }}
+          style={{ background: `linear-gradient(90deg, var(--pp-accent) ${fill}%, rgb(255 255 255 / 0.2) ${fill}%)` }}
           className="mt-6 h-2 w-full cursor-pointer appearance-none rounded-full accent-pp-accent focus:outline-none focus-visible:ring-4 focus-visible:ring-pp-accent/60 [&::-moz-range-thumb]:h-6 [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-4 [&::-moz-range-thumb]:border-pp-accent [&::-moz-range-thumb]:bg-pp-primary [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-pp-accent [&::-webkit-slider-thumb]:bg-pp-primary"
         />
         <div className="mt-2 flex justify-between text-xs text-pp-navy-100">
@@ -64,6 +64,10 @@ export default function StatutoryCalculator() {
           })}
         </dl>
         <p className="mt-4 text-sm text-text-muted">{calculator.note}</p>
+        {/* Screen readers hear the five results after each slider move. */}
+        <p aria-live="polite" className="sr-only">
+          {calculator.outputs.map((o) => `${o.label}: ${rs(earnings * o.rate)}`).join(". ")}
+        </p>
       </div>
     </div>
   );
