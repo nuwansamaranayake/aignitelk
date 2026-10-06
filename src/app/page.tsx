@@ -4,7 +4,18 @@ import LkLogo from "@/components/LkLogo";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
-const products: { name: string; description: string; url?: string; docsUrl?: string; page?: { href: string; label: string }; icon: React.ReactNode }[] = [
+const products: { name: string; description: string; url?: string; docsUrl?: string; page?: { href: string; label: string }; icon: React.ReactNode; flagship?: boolean }[] = [
+  {
+    name: "Kalika",
+    description:
+      "Vedic Intelligence for business. Business timing, muhurtha and wealth readings, computed by software and checked against 79,000+ charts. Sinhala and English, LKR pricing.",
+    url: "https://cosmicnexus.ai/lk",
+    page: { href: "/products/kalika", label: "See Kalika →" },
+    flagship: true,
+    icon: (
+      <Image src="/img/kalika/brand/kalika-yantra-256.webp" alt="Kalika logo" width={256} height={256} className="h-14 w-14" />
+    ),
+  },
   {
     name: "DrapeStudio",
     description:
@@ -248,7 +259,40 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-14 grid gap-8 md:grid-cols-2">
-            {products.map((product) => (
+            {products.map((product) =>
+              product.flagship ? (
+                <div
+                  key={product.name}
+                  className="kk-night relative overflow-hidden rounded-xl border-2 border-kk-gold p-8 text-kk-cream shadow-lk-3 transition-transform duration-200 hover:-translate-y-[3px] md:col-span-2"
+                >
+                  <span className="absolute right-5 top-5 rounded-full bg-lk-gold px-3 py-1 font-heading text-xs font-bold uppercase tracking-[0.18em] text-kk-night">
+                    Flagship
+                  </span>
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center">{product.icon}</div>
+                  <h3 className="font-heading text-2xl font-semibold text-kk-gold-warm">{product.name}</h3>
+                  <p className="mt-3 max-w-3xl text-sm leading-relaxed text-kk-cream/90">{product.description}</p>
+                  <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+                    {product.page && (
+                      <Link
+                        href={product.page.href}
+                        className="inline-flex items-center gap-1 text-sm font-semibold text-lk-gold underline underline-offset-2 transition-colors hover:text-kk-gold-hi"
+                      >
+                        {product.page.label}
+                      </Link>
+                    )}
+                    {product.url && (
+                      <a
+                        href={product.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-kk-gold-warm transition-colors hover:text-kk-gold-hi"
+                      >
+                        Visit →
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ) : (
               <div key={product.name} className="glass-card-hover p-8">
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-lk-maroon/10 text-lk-maroon">
                   {product.icon}
@@ -292,7 +336,8 @@ export default function Home() {
                   </div>
                 )}
               </div>
-            ))}
+              ),
+            )}
           </div>
         </div>
       </section>

@@ -87,6 +87,22 @@ const config: Config = {
           stop: '#DC2626',
           hold: '#F59E0B',
         },
+        // Kalika, from the Kalika Logo Kit color-tokens.json (cosmic-nexus storefront brand, V6 Tridevi).
+        // Gold carries rules, borders and large text on night. On cream, small text uses night or crimson-deep.
+        kk: {
+          night: '#0A0A20',
+          medallion: '#060614',
+          crimson: '#A6364C',
+          'crimson-deep': '#8B2C3E',
+          rose: '#7A3348',
+          pink: '#F2B8C6',
+          gold: '#D4AF37',
+          'gold-hi': '#F5D76E',
+          'gold-warm': '#E8C871',
+          bronze: '#B8903C',
+          cream: '#F5F0E8',
+          glow: '#FFFAE8',
+        },
         // PrimePath HR accents, from the PrimePath HR Design System (tokens/colors.css, navy and gold scales).
         // Gold is a fill and accent colour. Gold text on light backgrounds uses accent-deep.
         pp: {

@@ -37,6 +37,10 @@ export const metadata: Metadata = {
     "event credentialing",
     "artificial intelligence",
     "software development",
+    "Kalika",
+    "Vedic astrology",
+    "business astrology Sri Lanka",
+    "muhurtha",
   ],
   icons: {
     icon: [

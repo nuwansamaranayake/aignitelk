@@ -5,6 +5,7 @@ import MobileNav, { type NavItem } from "@/components/MobileNav";
 // Site shell navigation, shared by every page. Section links point at the
 // home page so they work from product pages too.
 const productPages = [
+  { href: "/products/kalika", label: "Kalika" },
   { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
   { href: "/products/scanpass", label: "ScanPass" },
   { href: "/products/primepath", label: "PrimePath HR" },
@@ -14,6 +15,7 @@ const productPages = [
 const mobileItems: NavItem[] = [
   { href: "/#about", label: "About" },
   { href: "/#products", label: "Products" },
+  { href: "/products/kalika", label: "Kalika" },
   { href: "/govihub", label: "GoviHub" },
   { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
   { href: "/products/scanpass", label: "ScanPass" },

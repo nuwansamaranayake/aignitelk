@@ -6,7 +6,7 @@ const fmt = (n: number) => n.toLocaleString("en-US");
 
 // Counts from 0 to the value once the number scrolls into view. Server HTML and
 // reduced-motion users get the final value straight away.
-export default function CountUp({ value, prefix = "Rs. " }: { value: number; prefix?: string }) {
+export default function CountUp({ value, prefix = "Rs. ", suffix = "" }: { value: number; prefix?: string; suffix?: string }) {
   const [shown, setShown] = useState(value);
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -41,10 +41,12 @@ export default function CountUp({ value, prefix = "Rs. " }: { value: number; pre
       <span aria-hidden className="tabular-nums">
         {prefix}
         {fmt(shown)}
+        {suffix}
       </span>
       <span className="sr-only">
         {prefix}
         {fmt(value)}
+        {suffix}
       </span>
     </span>
   );
