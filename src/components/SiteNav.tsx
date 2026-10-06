@@ -6,6 +6,7 @@ import MobileNav, { type NavItem } from "@/components/MobileNav";
 // home page so they work from product pages too.
 const productPages = [
   { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
+  { href: "/products/scanpass", label: "ScanPass" },
   { href: "/govihub", label: "GoviHub" },
 ];
 
@@ -14,6 +15,7 @@ const mobileItems: NavItem[] = [
   { href: "/#products", label: "Products" },
   { href: "/govihub", label: "GoviHub" },
   { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
+  { href: "/products/scanpass", label: "ScanPass" },
   { href: "/#team", label: "Team" },
   { href: "/#contact", label: "Contact" },
 ];
