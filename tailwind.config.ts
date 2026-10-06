@@ -87,6 +87,22 @@ const config: Config = {
           stop: '#DC2626',
           hold: '#F59E0B',
         },
+        // PrimePath HR accents, from the PrimePath HR Design System (tokens/colors.css, navy and gold scales).
+        // Gold is a fill and accent colour. Gold text on light backgrounds uses accent-deep.
+        pp: {
+          primary: '#011941',
+          night: '#001432',
+          'navy-700': '#0A2655',
+          'navy-600': '#16356E',
+          'navy-500': '#254888',
+          'navy-100': '#D0E0F2',
+          'navy-50': '#EAF3FB',
+          accent: '#E7B041',
+          'accent-light': '#EFD056',
+          'accent-deep': '#936318',
+          'accent-soft': '#FCF4D8',
+          cream: '#F5EDD8',
+        },
         bg: {
           DEFAULT: '#FBF7F0',
           alt: '#F3EBDD',

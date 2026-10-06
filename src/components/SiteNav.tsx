@@ -7,6 +7,7 @@ import MobileNav, { type NavItem } from "@/components/MobileNav";
 const productPages = [
   { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
   { href: "/products/scanpass", label: "ScanPass" },
+  { href: "/products/primepath", label: "PrimePath HR" },
   { href: "/govihub", label: "GoviHub" },
 ];
 
@@ -16,6 +17,7 @@ const mobileItems: NavItem[] = [
   { href: "/govihub", label: "GoviHub" },
   { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
   { href: "/products/scanpass", label: "ScanPass" },
+  { href: "/products/primepath", label: "PrimePath HR" },
   { href: "/#team", label: "Team" },
   { href: "/#contact", label: "Contact" },
 ];
