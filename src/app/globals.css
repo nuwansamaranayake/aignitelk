@@ -15,6 +15,8 @@
   --ds-gold-light: theme('colors.ds.gold-light');
   --mm-primary: theme('colors.mm.primary');
   --mm-accent: theme('colors.mm.accent');
+  --pp-primary: theme('colors.pp.primary');
+  --pp-accent: theme('colors.pp.accent');
 }
 
 * {
@@ -100,6 +102,20 @@ body {
     background-image:
       radial-gradient(50% 55% at 0% 10%, theme('colors.mm.primary / 32%'), transparent 70%),
       radial-gradient(45% 50% at 100% 90%, theme('colors.mm.accent / 16%'), transparent 70%);
+  }
+  .pp-mesh-light {
+    background-color: theme('colors.ds.cream');
+    background-image:
+      radial-gradient(60% 50% at 0% 0%, theme('colors.pp.accent / 22%'), transparent 70%),
+      radial-gradient(55% 45% at 100% 10%, theme('colors.pp.navy-500 / 14%'), transparent 70%),
+      radial-gradient(50% 50% at 50% 100%, theme('colors.pp.accent-light / 18%'), transparent 70%);
+  }
+  .pp-mesh-dark {
+    background-color: theme('colors.pp.night');
+    background-image:
+      radial-gradient(55% 60% at 10% 0%, theme('colors.pp.navy-500 / 60%'), transparent 70%),
+      radial-gradient(45% 55% at 95% 100%, theme('colors.pp.accent / 30%'), transparent 70%),
+      linear-gradient(135deg, theme('colors.pp.navy-700'), theme('colors.pp.night'));
   }
   .sp-mesh-light{background-color:#f4fbfc;background-image:radial-gradient(60% 50% at 0 0,rgba(14,116,144,.14),transparent 70%),radial-gradient(55% 45% at 100% 10%,rgba(180,83,9,.12),transparent 70%),radial-gradient(50% 50% at 50% 100%,rgba(94,234,212,.18),transparent 70%)}
   .sp-mesh-dark{background-color:#083344;background-image:radial-gradient(55% 60% at 10% 0,rgba(14,116,144,.6),transparent 70%),radial-gradient(45% 55% at 95% 100%,rgba(180,83,9,.32),transparent 70%),linear-gradient(135deg,#155e75,#083344)}
