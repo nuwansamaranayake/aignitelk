@@ -33,7 +33,8 @@ import {
 } from "./content";
 
 const sinhala = Noto_Sans_Sinhala({ subsets: ["sinhala"], display: "swap" });
-const tamil = Noto_Sans_Tamil({ subsets: ["tamil"], display: "swap" });
+// One chip uses Tamil, so the font loads on demand instead of being preloaded.
+const tamil = Noto_Sans_Tamil({ subsets: ["tamil"], display: "swap", preload: false });
 
 const OG_IMAGE = { url: "/img/scanpass/og-scanpass-1200x630.jpg", width: 1200, height: 630, alt: meta.ogAlt };
 
@@ -118,7 +119,8 @@ function SpMark({ className = "h-4 w-4", dark = false }: { className?: string; d
   );
 }
 
-function Eyebrow({ children, tone = "text-sp-teal", dark = false }: { children: React.ReactNode; tone?: string; dark?: boolean }) {
+// Eyebrows are 12px, so they use the deeper teal: sp-teal drops below 4.5:1 on the mesh tint.
+function Eyebrow({ children, tone = "text-sp-teal-deep", dark = false }: { children: React.ReactNode; tone?: string; dark?: boolean }) {
   return (
     <p className={`flex items-center gap-2 font-heading text-xs font-semibold uppercase tracking-[0.2em] ${tone}`}>
       <SpMark className="h-3.5 w-3.5" dark={dark} />
@@ -373,7 +375,7 @@ export default function ScanPassPage() {
         {/* 3. How it works */}
         <section aria-labelledby="how-title" className="sp-mesh-dark py-16 text-white md:py-20">
           <div className="reveal mx-auto max-w-6xl px-6">
-            <Eyebrow tone="text-sp-aqua" dark>
+            <Eyebrow tone="text-sp-teal-soft" dark>
               {steps.eyebrow}
             </Eyebrow>
             <h2 id="how-title" className="mt-3 font-heading text-3xl font-bold sm:text-4xl">
@@ -410,7 +412,7 @@ export default function ScanPassPage() {
                     <PassBadge colour={badgeColours[p.key]} label={p.badgeLabel} />
                     <div>
                       <h3 className="font-heading text-xl font-semibold">{p.name}</h3>
-                      <p className="mt-2 text-sm leading-relaxed opacity-90">{p.body}</p>
+                      <p className="mt-2 text-sm leading-relaxed">{p.body}</p>
                       <p className={`mt-4 inline-block rounded-full px-3 py-1 text-xs font-semibold ${st.chip}`}>{p.chip}</p>
                     </div>
                   </article>
@@ -499,6 +501,7 @@ export default function ScanPassPage() {
                   className="aspect-video h-auto w-full focus-within:outline focus-within:outline-4 focus-within:-outline-offset-4 focus-within:outline-sp-aqua"
                   src={VIDEO_URL}
                 >
+                  <track kind="captions" src={demo.captionsSrc} srcLang="en" label={demo.captionsLabel} default />
                   <a href={VIDEO_URL} {...ext}>
                     {demo.videoFallback}
                   </a>

@@ -32,6 +32,12 @@ html {
     scroll-behavior: auto;
   }
 }
+/* Product pages pin a call-to-action bar to the bottom below md, so focus never lands under it. */
+@media (max-width: 767px) {
+  html {
+    scroll-padding-bottom: 88px;
+  }
+}
 
 @keyframes sp-scan {
   0% { opacity: 0; transform: translateY(-100%); }

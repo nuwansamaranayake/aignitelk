@@ -46,7 +46,25 @@ Matches live scanpasslk.com, fetched twice on 2026-10-05. The only difference fr
 
 ## 5. CSP and headers
 
-None changed. The site sends no CSP, so the cross-origin video streams from scanpasslk.com as is.
+No CSP exists, so the cross-origin video streams from scanpasslk.com as is. `nginx.conf` gained one `.vtt` location that serves the caption file as `text/vtt`.
+
+## 5a. Code review fixes (before deploy)
+
+A reviewer subagent assessed the branch as "with fixes", with no critical issues. Applied:
+- Captions for the narrated demo video (WCAG 1.2.2): `public/media/scanpass/demo-captions-en.vtt`.
+- Media pass card body contrast. Dropped `opacity-90`, so the text is solid white on terra (5.02:1).
+- 12px eyebrows switched to `sp-teal-deep` on light sections and `sp-teal-soft` on dark ones. The mesh tint peaks pushed `sp-teal` and `sp-aqua` below 4.5:1.
+- `scroll-padding-bottom: 88px` below md, so the sticky bar never covers a focused element. The rule is site-wide CSS.
+- Noto Sans Tamil is no longer preloaded.
+- Copy corrections, with code winning:
+  - The FAQ language answer is scoped to registration forms.
+  - The VIP card no longer claims invite-only.
+  - The zones card is now time windows only.
+  - "green or red" is now "green, amber or red".
+  - The gate caption is now "Gate scan sign-in".
+
+  See `docs/scanpass-page-claims.md`.
+- Not changed: the hero phone mock keeps the real app colours (small text on #16A34A is 2.6 to 3.7:1). It is an illustration of a UI screen, captioned as one, and `aria-hidden`.
 
 ## 5b. Design system conflicts
 

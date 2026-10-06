@@ -98,7 +98,7 @@ export const steps = {
   items: [
     { title: "Configure", body: "Set up your event, your pass types and your registration form. No code." },
     { title: "Register", body: "Share your link. Applicants fill the form, upload ID and receive a unique PIN." },
-    { title: "Scan", body: "Your gate team scans each QR. The phone shows green or red and logs the GPS location." },
+    { title: "Scan", body: "Your gate team scans each QR. The phone shows green, amber or red and logs the GPS location." },
   ],
 };
 
@@ -128,12 +128,14 @@ export const passTypes = {
       body: "Upload your approved list. Passes go out with no review queue.",
       chip: "Pre-approved list",
     },
+    // Brief copy said invite-only registration. No invite feature exists in the ScanPass code
+    // or on scanpasslk.com, so the card describes a VIP pass type with manual approval.
     {
       key: "vip",
       name: "VIP guests",
       badgeLabel: "VIP",
-      body: "Invite-only registration for the guests you name.",
-      chip: "Invite only",
+      body: "Give VIP guests their own pass type and approve each one yourself.",
+      chip: "Manual approval",
     },
     {
       key: "attendee",
@@ -142,11 +144,13 @@ export const passTypes = {
       body: "Open registration with instant approval for free-entry events.",
       chip: "Auto-approve",
     },
+    // Brief copy said zones. The ScanPass code has time-bound passes (event_config time_bound)
+    // and no zone model, so the card covers time windows only.
     {
       key: "zones",
-      name: "Zones and sessions",
-      badgeLabel: "Press · Day 2",
-      body: "Limit a pass to one zone or one time window, such as the press area on day two.",
+      name: "Sessions and time windows",
+      badgeLabel: "Day 2",
+      body: "Limit a pass to one time window, such as day two of the event.",
       chip: "Time-bound access",
     },
   ] satisfies PassType[],
@@ -172,11 +176,15 @@ export const demo = {
     register: "Registration form",
     admin: "Admin review queue",
     badge: "Badge PDF",
-    gate: "Gate scan",
+    gate: "Gate scan sign-in",
   },
   placeholder: "Sample coming soon",
   videoTitle: "Watch the full flow, from registration to gate scan",
   videoFallback: "Open the demo video",
+  // Captions transcribed from the narration in ScanPass product_video/video-config.yaml,
+  // timed from product_video/src/Root.tsx scene lengths and public/audio/timings.json.
+  captionsSrc: "/media/scanpass/demo-captions-en.vtt",
+  captionsLabel: "English",
 };
 
 export const features = {
@@ -313,7 +321,7 @@ export const faq = {
     { q: "Do attendees need an app?", a: "No. Registration and gate scanning both run in a phone browser." },
     {
       q: "How does a gate check work?",
-      a: "Your gate team opens the ScanPass scan page on a phone and points the camera at the QR. The screen shows green or red, and the scan log records the time and location.",
+      a: "Your gate team opens the ScanPass scan page on a phone and points the camera at the QR. The screen shows green, amber or red, and the scan log records the time and location.",
     },
     {
       q: "Who sets up my event?",
@@ -327,7 +335,11 @@ export const faq = {
       q: "Does ScanPass sell paid tickets?",
       a: "No. ScanPass issues credentials and free-entry tickets. Collect any fees through your own channel.",
     },
-    { q: "Which languages does ScanPass support?", a: "Sinhala, Tamil and English." },
+    // Scoped like the features card: only the register app is translated.
+    {
+      q: "Which languages does ScanPass support?",
+      a: "Registration forms come in Sinhala, Tamil and English. Admin screens and badge PDFs are in English.",
+    },
     {
       q: "Do I get my own web address?",
       a: "Yes. Each organizer gets a branded address such as yourname.scanpasslk.com. The Large tier and above add your own domain.",

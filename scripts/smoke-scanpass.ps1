@@ -31,6 +31,14 @@ foreach ($i in $imgs) {
 }
 "Assets OK: $($imgs.Count)"
 
+# Captions track for the demo video, served as text/vtt (browsers drop other types)
+$track = [regex]::Match($r.Content, '<track[^>]*src="([^"]+\.vtt)"').Groups[1].Value
+if (-not $track) { throw "No captions track on the video" }
+$c = Invoke-WebRequest "$Base$track" -UseBasicParsing -TimeoutSec 20
+if ($c.Headers["Content-Type"] -notlike "text/vtt*") { throw "Captions $track served as $($c.Headers['Content-Type'])" }
+if ([System.Text.Encoding]::UTF8.GetString($c.RawContentStream.ToArray()) -notlike "WEBVTT*") { throw "Captions $track is not WebVTT" }
+"Captions OK: $track"
+
 # Remote video reachable
 foreach ($u in "https://www.scanpasslk.com/video/scanpass-product-video.mp4") {
   $v = Invoke-WebRequest $u -Method Head -UseBasicParsing -TimeoutSec 20

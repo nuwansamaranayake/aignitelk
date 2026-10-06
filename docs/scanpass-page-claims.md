@@ -25,18 +25,23 @@ Rule: change a claim here first, then in the content module.
 |---|---|---|
 | Forms, badges and admin screens in all three languages. | Registration forms in all three languages. | Only `apps/register` uses `@scanpass/i18n`. `credentials/badge.py` uses Helvetica only, with no Sinhala or Tamil glyphs. The admin app has no i18n. |
 | Idle phones log out on their own. You see scan counts per session and scan history per phone. | Gate logins expire on their own. Each phone shows its scan count and last scan time. | `verify_auth_service.py` says inactivity logout is a frontend concern, and `apps/verify/src` has no idle timer. Sessions expire by `expires_at`. `SessionInfoResponse` returns `total_scans` and `last_scan_at` per session. No per-phone history screen exists. |
+| VIP guests: Invite-only registration for the guests you name. (chip: Invite only) | Give VIP guests their own pass type and approve each one yourself. (chip: Manual approval) | No `invite` field in `services/api/app` or `packages/config-schema`, and scanpasslk.com does not claim it. Only `00-product-overview.md` line 45 lists it |
+| Zones and sessions: Limit a pass to one zone or one time window, such as the press area on day two. | Sessions and time windows: Limit a pass to one time window, such as day two of the event. | `event_config.py` has `time_bound`. No zone model, and scanpasslk.com does not claim zones |
+| FAQ: Which languages? Sinhala, Tamil and English. | Registration forms come in Sinhala, Tamil and English. Admin screens and badge PDFs are in English. | Same evidence as the features card. The FAQ also feeds FAQPage JSON-LD |
+| The phone shows green or red (step 3 and FAQ) | green, amber or red | The verify app has a flagged state shown in amber |
+| Caption: Gate scan | Gate scan sign-in | The screen shown is the verify sign-in screen |
 
 ## Claims backed by documents or the live site only (not found in code)
 
-Kept as written in the brief. Nuwan to confirm before deploy.
-
 | Claim | Source | Code search result |
 |---|---|---|
-| VIP guests: invite-only registration | `docs/architecture/00-product-overview.md` line 45 | No `invite` field in `services/api/app` or `packages/config-schema` |
-| Staff: upload your approved list | Live pricing "Bulk CSV import" (Standard tier) | No CSV import in `services/api/app` |
-| Zones: limit a pass to one zone | `00-product-overview.md` line 47 (multi-zone access) | `time_bound` found, no zone model found |
+| Staff: upload your approved list | Live scanpasslk.com pricing "Bulk CSV import" (Standard tier) | No CSV import in `services/api/app` |
 | WhatsApp support | Brief | Operational promise, not code |
 | We reply within one business day | Brief | Operational promise, not code |
+
+## Video captions
+
+`public/media/scanpass/demo-captions-en.vtt`, 19 cues. Text from the narration in ScanPass `product_video/video-config.yaml` (em dashes turned into commas). Each scene starts at the offsets from `product_video/src/Root.tsx` (scene lengths plus 20-frame transitions at 30 fps). Speech length comes from `public/audio/timings.json`. Lines inside a scene are timed by character share. The live MP4 is 120.38 s long, which matches the composition's 3,610 frames. Served as `text/vtt` through a `.vtt` location in `nginx.conf`.
 
 ## Pricing
 
