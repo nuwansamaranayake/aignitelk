@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Abhaya_Libre, Cormorant_Garamond } from "next/font/google";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import { breadcrumbs } from "@/lib/seo";
 import RevealObserver from "@/components/drapestudio/RevealObserver";
 import CountUp from "@/components/drapestudio/CountUp";
 import TimingWindow from "@/components/kalika/TimingWindow";
@@ -60,9 +61,9 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": ORG_ID,
-    name: "AIgnite Software (Private) Limited",
+    name: "AiGNITE Software (Pvt) Ltd",
     legalName: "AIgnite Software (Private) Limited",
-    alternateName: "AiGNITE Software (Pvt) Ltd",
+    alternateName: "AiGNITE Sri Lanka",
     url: "https://aignitelk.com",
     identifier: { "@type": "PropertyValue", propertyID: "Sri Lanka company number", value: "PV 00362580" },
     address: { "@type": "PostalAddress", addressLocality: "Colombo", addressCountry: "LK" },
@@ -248,7 +249,7 @@ export default function KalikaPage() {
   const h2 = `${serif.className} mt-3 text-4xl font-bold leading-tight sm:text-5xl`;
   return (
     <div className="min-h-screen bg-kk-night text-kk-cream">
-      {jsonLd.map((block, i) => (
+      {[...jsonLd, breadcrumbs("Kalika", PAGE_PATH)].map((block, i) => (
         <script
           key={i}
           type="application/ld+json"

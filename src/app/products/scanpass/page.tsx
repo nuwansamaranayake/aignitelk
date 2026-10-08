@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Noto_Sans_Sinhala, Noto_Sans_Tamil } from "next/font/google";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import { breadcrumbs } from "@/lib/seo";
 import RevealObserver from "@/components/drapestudio/RevealObserver";
 import {
   CONTACT_URL,
@@ -63,9 +64,9 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": ORG_ID,
-    name: "AIgnite Software (Private) Limited",
+    name: "AiGNITE Software (Pvt) Ltd",
     legalName: "AIgnite Software (Private) Limited",
-    alternateName: "AiGNITE Software (Pvt) Ltd",
+    alternateName: "AiGNITE Sri Lanka",
     url: "https://aignitelk.com",
     identifier: { "@type": "PropertyValue", propertyID: "Sri Lanka company number", value: "PV 00362580" },
     address: { "@type": "PostalAddress", addressLocality: "Colombo", addressCountry: "LK" },
@@ -231,7 +232,7 @@ const gateStyles: Record<string, { tile: string; icon: string }> = {
 export default function ScanPassPage() {
   return (
     <div className="min-h-screen bg-bg-surface text-text-primary">
-      {jsonLd.map((block, i) => (
+      {[...jsonLd, breadcrumbs("ScanPass", PAGE_PATH)].map((block, i) => (
         <script
           key={i}
           type="application/ld+json"

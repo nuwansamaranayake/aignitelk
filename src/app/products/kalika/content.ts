@@ -19,7 +19,7 @@ export const OG_IMAGE_PATH = "/img/kalika/og/kalika-share-1200x630.jpg";
 export const meta = {
   title: "Kalika | Vedic Intelligence for Business, Sri Lanka",
   description:
-    "Kalika times your business decisions with Vedic astrology. Business consultation from Rs. 9,000, muhurtha Rs. 3,000, wealth reading Rs. 8,000. Sinhala or English, ordered on WhatsApp.",
+    "Kalika times business decisions with Vedic astrology. Business consultation from Rs. 9,000, muhurtha Rs. 3,000, wealth reading Rs. 8,000. Order on WhatsApp.",
   ogAlt: "Kalika yantra logo beside the words Kalika and Business decisions, better timed.",
 };
 

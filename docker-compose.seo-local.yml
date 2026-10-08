@@ -1,0 +1,8 @@
+# Local SEO smoke run only. Same Dockerfile and nginx.conf as production,
+# without the Traefik labels, published on 3102.
+# docker compose -p seo-aignitelk -f docker-compose.seo-local.yml up -d --build
+services:
+  web:
+    build: .
+    ports:
+      - "3102:80"

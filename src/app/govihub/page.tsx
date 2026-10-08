@@ -4,6 +4,7 @@ import { Inter, Noto_Sans_Sinhala, Noto_Sans_Tamil } from "next/font/google";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import PhoneDemo from "@/components/govihub/PhoneDemo";
+import { ORG_ID, breadcrumbs } from "@/lib/seo";
 import {
   CONTACT_HREF,
   GH_APP_URL,
@@ -52,17 +53,32 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: meta.title, description: meta.description, images: [OG_IMAGE] },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "GoviHub",
-  url: GH_APP_URL,
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  inLanguage: ["en", "si", "ta"],
-  award: "Digital Innovation Impact Pioneer, Global Digital Trade Expo, Hangzhou, September 2026",
-  publisher: { "@type": "Organization", name: "AiGNITE Sri Lanka", url: "https://aignitelk.com" },
-};
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORG_ID,
+    name: "AiGNITE Software (Pvt) Ltd",
+    legalName: "AIgnite Software (Private) Limited",
+    alternateName: "AiGNITE Sri Lanka",
+    url: "https://aignitelk.com",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "GoviHub",
+    url: GH_APP_URL,
+    description: hero.subhead,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    inLanguage: ["en", "si", "ta"],
+    award: "Digital Innovation Impact Pioneer, Global Digital Trade Expo, Hangzhou, September 2026",
+    publisher: { "@id": ORG_ID },
+    // "Free for farmers. Forever." is on the page. No other price is shown.
+    offers: { "@type": "Offer", name: "Farmers", price: "0", priceCurrency: "LKR" },
+  },
+  breadcrumbs("GoviHub", PAGE_PATH),
+];
 
 const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 const btn =
@@ -151,7 +167,9 @@ function Icon({ d, className = "h-7 w-7" }: { d: string; className?: string }) {
 export default function GoviHubPage() {
   return (
     <div className={`${inter.className} min-h-screen bg-gh-page text-gh-ink`}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      {jsonLd.map((block, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(block).replace(/</g, "\\u003c") }} />
+      ))}
       <SiteNav />
 
       <main>

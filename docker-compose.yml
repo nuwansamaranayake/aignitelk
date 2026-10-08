@@ -5,7 +5,9 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.aignitelk.rule=Host(`aignitelk.com`) || Host(`www.aignitelk.com`)"
+      # Apex only. When this rule also matched www, it outranked the www redirect
+      # router below (Traefik ranks routers by rule length), so www served a duplicate.
+      - "traefik.http.routers.aignitelk.rule=Host(`aignitelk.com`)"
       - "traefik.http.routers.aignitelk.entrypoints=websecure"
       - "traefik.http.routers.aignitelk.tls.certresolver=letsencrypt"
       - "traefik.http.services.aignitelk.loadbalancer.server.port=80"

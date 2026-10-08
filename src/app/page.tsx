@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import LkLogo from "@/components/LkLogo";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import { ORG_ID } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const products: { name: string; description: string; url?: string; docsUrl?: string; page?: { href: string; label: string }; icon: React.ReactNode; flagship?: boolean }[] = [
   {
@@ -83,13 +89,29 @@ const awardStats = [
   ["1", "Sri Lankan company in the cohort"],
 ];
 
+// sameAs is left out on purpose: the only profiles linked on the site are the
+// founder's personal LinkedIn and the GoviHub YouTube channel, not this company.
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "AiGNITE Software (Pvt) Ltd",
-  url: "https://aignitelk.com",
-  logo: "https://aignitelk.com/favicon-192.png",
-  award: "Digital Innovation Impact Pioneer, Global Digital Trade Expo, Hangzhou, September 2026",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORG_ID,
+      name: "AiGNITE Software (Pvt) Ltd",
+      legalName: "AIgnite Software (Private) Limited",
+      alternateName: "AiGNITE Sri Lanka",
+      url: "https://aignitelk.com",
+      logo: "https://aignitelk.com/favicon-192.png",
+      award: "Digital Innovation Impact Pioneer, Global Digital Trade Expo, Hangzhou, September 2026",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aignitelk.com/#website",
+      url: "https://aignitelk.com",
+      name: "AiGNITE Software",
+      publisher: { "@id": ORG_ID },
+    },
+  ],
 };
 
 export default function Home() {
@@ -108,9 +130,9 @@ export default function Home() {
             <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">
               International recognition
             </p>
-            <h1 className="mt-3 font-heading text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+            <h2 className="mt-3 font-heading text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
               Digital Innovation Impact Pioneer
-            </h1>
+            </h2>
             <p className="mt-4 text-lg leading-relaxed text-text-primary">
               AiGNITE Sri Lanka was recognised at the Global Digital Trade Expo in Hangzhou, China, in September 2026.
             </p>
@@ -186,11 +208,11 @@ export default function Home() {
             <p className="mb-4 font-heading text-sm font-semibold uppercase tracking-[0.2em] text-lk-maroon">
               Software (Pvt) Ltd
             </p>
-            <h2 className="font-heading text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+            <h1 className="font-heading text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
               AI-Powered Software
               <br />
               <span className="text-lk-maroon">Solutions from Sri Lanka</span>
-            </h2>
+            </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-text-muted">
               Combining Silicon Valley engineering standards with deep local domain
               knowledge to deliver intelligent software that solves real problems.

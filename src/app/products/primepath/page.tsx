@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Noto_Sans_Sinhala } from "next/font/google";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import { breadcrumbs } from "@/lib/seo";
 import BeforeAfter, { type CompareTheme } from "@/components/drapestudio/BeforeAfter";
 import RevealObserver from "@/components/drapestudio/RevealObserver";
 import PayslipCard from "@/components/primepath/PayslipCard";
@@ -58,9 +59,9 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": ORG_ID,
-    name: "AIgnite Software (Private) Limited",
+    name: "AiGNITE Software (Pvt) Ltd",
     legalName: "AIgnite Software (Private) Limited",
-    alternateName: "AiGNITE Software (Pvt) Ltd",
+    alternateName: "AiGNITE Sri Lanka",
     url: "https://aignitelk.com",
     identifier: { "@type": "PropertyValue", propertyID: "Sri Lanka company number", value: "PV 00362580" },
     address: { "@type": "PostalAddress", addressLocality: "Colombo", addressCountry: "LK" },
@@ -151,7 +152,7 @@ function Icon({ d, className = "h-6 w-6" }: { d: string; className?: string }) {
 export default function PrimePathPage() {
   return (
     <div className="min-h-screen bg-ds-cream text-text-primary">
-      {jsonLd.map((block, i) => (
+      {[...jsonLd, breadcrumbs("PrimePath HR", PAGE_PATH)].map((block, i) => (
         <script
           key={i}
           type="application/ld+json"
