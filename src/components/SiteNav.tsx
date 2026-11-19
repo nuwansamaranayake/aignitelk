@@ -9,6 +9,7 @@ const productPages = [
   { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
   { href: "/products/scanpass", label: "ScanPass" },
   { href: "/products/primepath", label: "PrimePath HR" },
+  { href: "/products/kadesavi", label: "Kadesavi" },
   { href: "/govihub", label: "GoviHub" },
 ];
 
@@ -20,6 +21,7 @@ const mobileItems: NavItem[] = [
   { href: "/products/drapestudio", label: "DrapeStudio & MirrorMe" },
   { href: "/products/scanpass", label: "ScanPass" },
   { href: "/products/primepath", label: "PrimePath HR" },
+  { href: "/products/kadesavi", label: "Kadesavi" },
   { href: "/#team", label: "Team" },
   { href: "/#contact", label: "Contact" },
 ];

@@ -81,6 +81,22 @@ const products: { name: string; description: string; url?: string; docsUrl?: str
       />
     ),
   },
+  {
+    name: "Kadesavi",
+    description:
+      "Order book and business advisor for one-owner online sellers in Sri Lanka who sell on WhatsApp and Facebook. Paste an order, get the courier Excel in one tap, check the weekly courier payment and see what makes money. Sinhala and English, on your phone.",
+    url: "https://kadesavi.com",
+    page: { href: "/products/kadesavi", label: "See Kadesavi →" },
+    icon: (
+      <Image
+        src="/img/kadesavi/brand/kadesavi-mark.svg"
+        alt="Kadesavi logo"
+        width={64}
+        height={64}
+        className="h-12 w-12"
+      />
+    ),
+  },
 ];
 
 const awardStats = [

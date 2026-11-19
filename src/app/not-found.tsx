@@ -16,6 +16,7 @@ const links = [
   { href: "/govihub", label: "GoviHub" },
   { href: "/products/scanpass", label: "ScanPass" },
   { href: "/products/primepath", label: "PrimePath HR" },
+  { href: "/products/kadesavi", label: "Kadesavi" },
 ];
 
 export default function NotFound() {

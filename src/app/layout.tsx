@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://aignitelk.com"),
   title: "AiGNITE Software (Pvt) Ltd — AI-Powered Software Solutions from Sri Lanka",
   description:
-    "AiGNITE Software (Pvt) Ltd builds AI products for Sri Lanka: GoviHub, Kalika, DrapeStudio, ScanPass, and PrimePath HR. Digital Innovation Impact Pioneer, 2026.",
+    "AiGNITE Software (Pvt) Ltd builds AI products for Sri Lanka: GoviHub, Kalika, DrapeStudio, ScanPass, PrimePath HR and Kadesavi. Digital Innovation Impact Pioneer, 2026.",
   keywords: [
     "AiGNITE",
     "AI software",
@@ -41,6 +41,8 @@ export const metadata: Metadata = {
     "Vedic astrology",
     "business astrology Sri Lanka",
     "muhurtha",
+    "Kadesavi",
+    "order book for online sellers",
   ],
   icons: {
     icon: [
