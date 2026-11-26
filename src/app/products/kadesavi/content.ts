@@ -12,7 +12,7 @@ export const brandSrc = (file: string) => `/img/kadesavi/brand/${file}`;
 export const meta = {
   title: "Kadesavi | Order book for online sellers in Sri Lanka | AiGNITE Software",
   description:
-    "Kadesavi is an order book and business advisor for one-owner online sellers in Sri Lanka. Paste a WhatsApp order, get the courier Excel in one tap, check the weekly courier payment and see what makes money.",
+    "Kadesavi is an order book for one-owner online sellers in Sri Lanka. Paste a WhatsApp order, get the courier Excel in one tap and check the courier payment.",
   ogAlt: "Kadesavi, the order book for small online sellers in Sri Lanka",
 };
 
