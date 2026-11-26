@@ -37,8 +37,10 @@ $nav = [regex]::Match($h.Html, '(?s)<nav.*?</nav>').Value
 Check "nav links /products/kalika" ($nav.Contains('href="/products/kalika"')) ""
 $grid = $h.Html.Substring([Math]::Max(0, $h.Html.IndexOf('id="products"')))
 Check "products grid links /products/kalika" ($grid.Contains('href="/products/kalika"')) ""
-$firstCard = [regex]::Match($grid, '<h3[^>]*>(.*?)</h3>').Groups[1].Value
-Check "Kalika is the first product card" ($firstCard -eq "Kalika") "first h3: $firstCard"
+# The story-first homepage (2026-11-26, owner approved) orders the cards by the job done by hand.
+# Kalika stays one of the product cards. It is no longer the first card.
+$cards = @([regex]::Matches($grid, '<h3[^>]*>(.*?)</h3>') | ForEach-Object { $_.Groups[1].Value })
+Check "Kalika is a product card" ($cards -contains "Kalika") "cards: $($cards -join ', ')"
 
 # DrapeStudio regression
 $d = Get-Utf8 "$Base/products/drapestudio"

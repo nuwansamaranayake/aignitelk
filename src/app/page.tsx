@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import LkLogo from "@/components/LkLogo";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import { ORG_ID } from "@/lib/seo";
@@ -10,65 +9,32 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const products: { name: string; description: string; url?: string; docsUrl?: string; page?: { href: string; label: string }; icon: React.ReactNode; flagship?: boolean }[] = [
+// Each product enters through the job the customer still does by hand.
+// Problem lines and prices come from the product pages on this site.
+const jobs: {
+  problem: string;
+  name: string;
+  line: string;
+  url: string;
+  docsUrl?: string;
+  page: { href: string; label: string };
+  icon: React.ReactNode;
+  flagship?: boolean;
+}[] = [
   {
-    name: "Kalika",
-    description:
-      "Vedic Intelligence for business. Business timing, muhurtha and wealth readings, computed by software and checked against 79,000+ charts. Sinhala and English, LKR pricing.",
-    url: "https://cosmicnexus.ai/lk",
-    page: { href: "/products/kalika", label: "See Kalika →" },
-    flagship: true,
+    problem: "You write every order in a book, then type the order again for the courier.",
+    name: "Kadesavi",
+    line: "Paste the order. Get the courier Excel in one tap.",
+    url: "https://kadesavi.com",
+    page: { href: "/products/kadesavi", label: "See Kadesavi →" },
     icon: (
-      <Image src="/img/kalika/brand/kalika-yantra-256.webp" alt="Kalika logo" width={256} height={256} className="h-14 w-14" />
+      <Image src="/img/kadesavi/brand/kadesavi-mark.svg" alt="Kadesavi logo" width={64} height={64} className="h-12 w-12" />
     ),
   },
   {
-    name: "DrapeStudio",
-    description:
-      "AI-powered product photography for Sri Lankan e-commerce sellers. Transform basic product photos into professional catalog-ready images.",
-    url: "https://drapestudiolk.com",
-    page: { href: "/products/drapestudio", label: "See DrapeStudio & MirrorMe →" },
-    icon: (
-      <Image
-        src="/img/drapestudio/brand/drapestudio-monogram-256.webp"
-        alt="DrapeStudio logo"
-        width={256}
-        height={256}
-        className="h-12 w-12"
-      />
-    ),
-  },
-  {
-    name: "GoviHub",
-    description:
-      "Agricultural intelligence platform connecting Sri Lankan farmers with buyers through smart matching, real-time pricing, and Sinhala/Tamil language support. Currently piloting for the spices market.",
-    url: "https://spices.govihublk.com/si",
-    docsUrl: "https://docs.govihublk.com",
-    page: { href: "/govihub", label: "See GoviHub →" },
-    icon: (
-      <Image
-        src="/img/govihub/govihub-icon-192.webp"
-        alt="GoviHub logo"
-        width={192}
-        height={192}
-        className="h-12 w-12"
-      />
-    ),
-  },
-  {
-    name: "ScanPass",
-    description:
-      "Event credentialing and gate access platform for Sri Lankan organizers. Issues QR-coded credentials for media, staff, VIP, and attendees, then verifies them at the gate on mobile devices with GPS and device tracking. Built from the production-proven Walk for Peace Sri Lanka 2026 system, with LKR pricing and Sinhala/Tamil/English support.",
-    url: "https://www.scanpasslk.com",
-    page: { href: "/products/scanpass", label: "See ScanPass →" },
-    icon: (
-      <Image src="/img/scanpass/brand/scanpass-icon.svg" alt="ScanPass logo" width={100} height={100} className="h-12 w-12" />
-    ),
-  },
-  {
+    problem: "Payroll lives in a spreadsheet. EPF and ETF files take hours.",
     name: "PrimePath HR",
-    description:
-      "Payroll management system built for Sri Lankan small and medium businesses. Handles salary calculations, statutory deductions (EPF/ETF), and employee records with full compliance to Sri Lankan labor regulations.",
+    line: "Salary sheet in. Payslips and EPF files out.",
     url: "https://lk.primepathhr.ai/login",
     page: { href: "/products/primepath", label: "See PrimePath HR →" },
     icon: (
@@ -82,20 +48,78 @@ const products: { name: string; description: string; url?: string; docsUrl?: str
     ),
   },
   {
-    name: "Kadesavi",
-    description:
-      "Order book and business advisor for one-owner online sellers in Sri Lanka who sell on WhatsApp and Facebook. Paste an order, get the courier Excel in one tap, check the weekly courier payment and see what makes money. Sinhala and English, on your phone.",
-    url: "https://kadesavi.com",
-    page: { href: "/products/kadesavi", label: "See Kadesavi →" },
+    problem: "Good clothing photos cost too much.",
+    name: "DrapeStudio",
+    line: "Phone photo in. Model photo out. Rs. 50 per image.",
+    url: "https://drapestudiolk.com",
+    page: { href: "/products/drapestudio", label: "See DrapeStudio & MirrorMe →" },
     icon: (
       <Image
-        src="/img/kadesavi/brand/kadesavi-mark.svg"
-        alt="Kadesavi logo"
-        width={64}
-        height={64}
+        src="/img/drapestudio/brand/drapestudio-monogram-256.webp"
+        alt="DrapeStudio logo"
+        width={256}
+        height={256}
         className="h-12 w-12"
       />
     ),
+  },
+  {
+    problem: "Paper lists slow your gate and invite fake passes.",
+    name: "ScanPass",
+    line: "Register online. Scan at the gate.",
+    url: "https://www.scanpasslk.com",
+    page: { href: "/products/scanpass", label: "See ScanPass →" },
+    icon: (
+      <Image src="/img/scanpass/brand/scanpass-icon.svg" alt="ScanPass logo" width={100} height={100} className="h-12 w-12" />
+    ),
+  },
+  {
+    problem: "You sell through middlemen, with no clear view of fair prices.",
+    name: "GoviHub",
+    line: "Sell direct to buyers. Free for farmers.",
+    url: "https://spices.govihublk.com/si",
+    docsUrl: "https://docs.govihublk.com",
+    page: { href: "/govihub", label: "See GoviHub →" },
+    icon: (
+      <Image src="/img/govihub/govihub-icon-192.webp" alt="GoviHub logo" width={192} height={192} className="h-12 w-12" />
+    ),
+  },
+  {
+    problem: "You pick a launch date from a free weekend on the calendar.",
+    name: "Kalika",
+    line: "Business decisions, better timed. From Rs. 3,000.",
+    url: "https://cosmicnexus.ai/lk",
+    page: { href: "/products/kalika", label: "See Kalika →" },
+    flagship: true,
+    icon: (
+      <Image src="/img/kalika/brand/kalika-yantra-256.webp" alt="Kalika logo" width={256} height={256} className="h-12 w-12" />
+    ),
+  },
+];
+
+// The hero picture: three jobs from the first paragraph, each crossed out
+// and handed to the product built for the job.
+const handWork = [
+  { by: "Orders in a paper book", product: "Kadesavi", href: "/products/kadesavi" },
+  { by: "Payroll in Excel", product: "PrimePath HR", href: "/products/primepath" },
+  { by: "Guest lists on WhatsApp", product: "ScanPass", href: "/products/scanpass" },
+];
+
+const proofPoints = [
+  "6 products",
+  "Digital Innovation Impact Pioneer, 2026",
+  "Sister company in Houston, Texas",
+];
+
+const planSteps = [
+  { title: "Pick your problem", body: "Choose the job you still do by hand." },
+  {
+    title: "See the product work",
+    body: "Each product page shows the screens, the steps and the price where we publish one.",
+  },
+  {
+    title: "Message us",
+    body: "Tell us about your business. Aruni replies in Sinhala and English.",
   },
 ];
 
@@ -138,6 +162,9 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       <SiteNav />
+
+      {/* Order: award, then the story (hero, problem, guide, plan, team, ask).
+          The owner keeps the award as the first section for now (2026-11-26). */}
 
       {/* Award (first section, directly under the fixed nav) */}
       <section id="award" className="pt-[84px]">
@@ -208,162 +235,156 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hero */}
+      {/* Hero: the customer's day, then the offer */}
       <section className="relative overflow-hidden border-t border-border">
-        {/* Background gradient */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-lk-saffron/10 blur-3xl" />
-          <div className="absolute right-1/4 top-1/3 h-64 w-64 rounded-full bg-lk-maroon/5 blur-3xl" />
+          <div className="absolute -left-24 top-1/4 h-96 w-96 rounded-full bg-lk-saffron/10 blur-3xl" />
+          <div className="absolute right-0 top-10 h-72 w-72 rounded-full bg-lk-maroon/5 blur-3xl" />
         </div>
 
-        <div className="section-container relative text-center">
-          <div className="animate-fade-in">
-            <div className="mb-8 flex justify-center">
-              <LkLogo size={72} />
-            </div>
-            <p className="mb-4 font-heading text-sm font-semibold uppercase tracking-[0.2em] text-lk-maroon">
-              Software (Pvt) Ltd
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+          <div className="animate-fade-in text-center lg:text-left">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">
+              AiGNITE Software · Sri Lanka
             </p>
-            <h1 className="font-heading text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
-              AI-Powered Software
-              <br />
-              <span className="text-lk-maroon">Solutions from Sri Lanka</span>
+            <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] sm:text-5xl lg:text-[3.4rem]">
+              <span className="block">Stop running your business by hand.</span>{" "}
+              <span className="block text-lk-maroon">Get software built for Sri Lanka.</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-text-muted">
-              Combining Silicon Valley engineering standards with deep local domain
-              knowledge to deliver intelligent software that solves real problems.
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-text-muted lg:mx-0">
+              Orders in a paper book. Payroll in Excel. Guest lists on WhatsApp. We build software for the work you
+              do by hand. Each product fits how business runs here: EPF and ETF, cash on delivery, prices in rupees.
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
               <a
                 href="#products"
-                className="rounded-lg bg-lk-maroon px-8 py-3 font-semibold text-white transition-colors hover:bg-lk-maroon-deep"
+                className="rounded-lg bg-lk-maroon px-8 py-3 text-center font-semibold text-white transition-colors hover:bg-lk-maroon-deep"
               >
-                Our Products
+                Find your product
               </a>
               <a
-                href="#about"
-                className="rounded-lg border border-lk-maroon px-8 py-3 font-semibold text-lk-maroon transition-colors hover:bg-lk-maroon/5"
+                href="#contact"
+                className="rounded-lg border border-lk-maroon px-8 py-3 text-center font-semibold text-lk-maroon transition-colors hover:bg-lk-maroon/5"
               >
-                Learn More
+                Talk to us
               </a>
             </div>
+            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-text-muted lg:justify-start">
+              {proofPoints.map((point) => (
+                <li key={point} className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-lk-saffron" />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
 
-      {/* About */}
-      <section id="about" className="border-t border-border">
-        <div className="section-container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-heading text-3xl font-bold sm:text-4xl">
-              About <span className="text-lk-maroon">AiGNITE Software</span>
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-text-muted">
-              AiGNITE Software (Pvt) Ltd is the Sri Lankan arm of the AiGNITE
-              ecosystem, building AI-powered products for local and regional
-              markets. We combine Silicon Valley engineering standards with deep
-              local domain knowledge to deliver intelligent software that solves
-              real problems.
+          <div className="glass-card mx-auto w-full max-w-md p-6 sm:p-7 lg:mx-0">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+              Still done by hand
             </p>
-            <div className="glass-card mx-auto mt-10 max-w-2xl p-6">
-              <p className="text-sm leading-relaxed text-text-muted">
-                <span className="text-lk-saffron">●</span>{" "}
-                AiGNITE Software (Pvt) Ltd operates as a sister company to{" "}
-                <a
-                  href="https://aigniteconsulting.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lk-maroon underline underline-offset-2 transition-colors hover:text-lk-maroon-deep"
-                >
-                  AiGNITE Consulting LLC
-                </a>{" "}
-                (Houston, TX), sharing architecture patterns, AI expertise, and
-                engineering standards across both entities.
-              </p>
-            </div>
+            <ul className="mt-4 divide-y divide-border-light">
+              {handWork.map((row) => (
+                <li key={row.product} className="flex items-center justify-between gap-4 py-4">
+                  <span className="text-[15px] text-text-muted line-through decoration-lk-maroon-soft decoration-2">
+                    {row.by}
+                  </span>
+                  <Link
+                    href={row.href}
+                    className="flex shrink-0 items-center gap-2 font-heading text-sm font-semibold text-lk-maroon transition-colors hover:text-lk-maroon-deep"
+                  >
+                    <span aria-hidden="true" className="text-lk-saffron">
+                      →
+                    </span>
+                    {row.product}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-sm text-text-muted">
+              3 of the 6 jobs we have built for.{" "}
+              <a href="#products" className="font-semibold text-lk-maroon underline underline-offset-2 hover:text-lk-maroon-deep">
+                See all 6
+              </a>
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Products */}
+      {/* Problem: each product enters through the job done by hand */}
       <section id="products" className="border-t border-border bg-bg-alt">
         <div className="section-container">
-          <div className="text-center">
-            <h2 className="font-heading text-3xl font-bold sm:text-4xl">
-              Our <span className="text-lk-maroon">Products</span>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">The problem</p>
+            <h2 className="mt-3 font-heading text-3xl font-bold sm:text-4xl">
+              Which job do you <span className="text-lk-maroon">still do by hand?</span>
             </h2>
-            <p className="mt-4 text-text-muted">
-              Intelligent solutions for Sri Lankan markets
-            </p>
           </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
-            {products.map((product) =>
-              product.flagship ? (
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {jobs.map((job) =>
+              job.flagship ? (
                 <div
-                  key={product.name}
-                  className="kk-night relative overflow-hidden rounded-xl border-2 border-kk-gold p-8 text-kk-cream shadow-lk-3 transition-transform duration-200 hover:-translate-y-[3px] md:col-span-2"
+                  key={job.name}
+                  className="kk-night relative flex flex-col overflow-hidden rounded-xl border-2 border-kk-gold p-7 text-kk-cream shadow-lk-3 transition-transform duration-200 hover:-translate-y-[3px]"
                 >
-                  <span className="absolute right-5 top-5 rounded-full bg-lk-gold px-3 py-1 font-heading text-xs font-bold uppercase tracking-[0.18em] text-kk-night">
+                  <span className="absolute right-4 top-4 rounded-full bg-lk-gold px-3 py-1 font-heading text-[10px] font-bold uppercase tracking-[0.18em] text-kk-night">
                     Flagship
                   </span>
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center">{product.icon}</div>
-                  <h3 className="font-heading text-2xl font-semibold text-kk-gold-warm">{product.name}</h3>
-                  <p className="mt-3 max-w-3xl text-sm leading-relaxed text-kk-cream/90">{product.description}</p>
-                  <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                    {product.page && (
-                      <Link
-                        href={product.page.href}
-                        className="inline-flex items-center gap-1 text-sm font-semibold text-lk-gold underline underline-offset-2 transition-colors hover:text-kk-gold-hi"
-                      >
-                        {product.page.label}
-                      </Link>
-                    )}
-                    {product.url && (
-                      <a
-                        href={product.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-kk-gold-warm transition-colors hover:text-kk-gold-hi"
-                      >
-                        Visit →
-                      </a>
-                    )}
+                  <p className="pr-20 font-heading text-lg font-semibold leading-snug text-kk-cream">{job.problem}</p>
+                  <div className="mt-6 flex items-center gap-4 border-t border-kk-gold/30 pt-5">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center">{job.icon}</div>
+                    <div>
+                      <h3 className="font-heading text-lg font-semibold text-kk-gold-warm">{job.name}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-kk-cream/90">{job.line}</p>
+                    </div>
+                  </div>
+                  <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-5">
+                    <Link
+                      href={job.page.href}
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-lk-gold underline underline-offset-2 transition-colors hover:text-kk-gold-hi"
+                    >
+                      {job.page.label}
+                    </Link>
+                    <a
+                      href={job.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-kk-gold-warm transition-colors hover:text-kk-gold-hi"
+                    >
+                      Visit →
+                    </a>
                   </div>
                 </div>
               ) : (
-              <div key={product.name} className="glass-card-hover p-8">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-lk-maroon/10 text-lk-maroon">
-                  {product.icon}
-                </div>
-                <h3 className="font-heading text-xl font-semibold">
-                  {product.name}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-text-muted">
-                  {product.description}
-                </p>
-                {(product.url || product.docsUrl || product.page) && (
-                  <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                    {product.page && (
-                      <Link
-                        href={product.page.href}
-                        className="inline-flex items-center gap-1 text-sm font-semibold text-lk-maroon underline underline-offset-2 transition-colors hover:text-lk-maroon-deep"
-                      >
-                        {product.page.label}
-                      </Link>
-                    )}
-                    {product.url && (
+                <div key={job.name} className="glass-card-hover flex flex-col p-7">
+                  <p className="font-heading text-lg font-semibold leading-snug">{job.problem}</p>
+                  <div className="mt-6 flex items-center gap-4 border-t border-border-light pt-5">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-lk-maroon/10 text-lk-maroon">
+                      {job.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-lg font-semibold text-lk-maroon">{job.name}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-text-muted">{job.line}</p>
+                    </div>
+                  </div>
+                  <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-5">
+                    <Link
+                      href={job.page.href}
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-lk-maroon underline underline-offset-2 transition-colors hover:text-lk-maroon-deep"
+                    >
+                      {job.page.label}
+                    </Link>
+                    <a
+                      href={job.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-lk-maroon transition-colors hover:text-lk-maroon-deep"
+                    >
+                      Visit →
+                    </a>
+                    {job.docsUrl && (
                       <a
-                        href={product.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-lk-maroon transition-colors hover:text-lk-maroon-deep"
-                      >
-                        Visit →
-                      </a>
-                    )}
-                    {product.docsUrl && (
-                      <a
-                        href={product.docsUrl}
+                        href={job.docsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-sm text-lk-teal transition-colors hover:text-lk-teal-soft"
@@ -372,11 +393,53 @@ export default function Home() {
                       </a>
                     )}
                   </div>
-                )}
-              </div>
+                </div>
               ),
             )}
           </div>
+          <p className="mx-auto mt-10 max-w-2xl text-center text-text-muted">
+            Overseas tools charge in dollars and skip the rules you follow. So the work stays on paper.
+          </p>
+        </div>
+      </section>
+
+      {/* Guide: empathy first. The award sits at the top of the page. */}
+      <section id="about" className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">Who we are</p>
+            <h2 className="mt-3 font-heading text-3xl font-bold sm:text-4xl">
+              A Sri Lankan company, <span className="text-lk-maroon">recognised abroad.</span>
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-text-muted">
+              We build for the way business runs here. The courier pays weekly. The customer pays cash at the door.
+              Your budget is in rupees.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Plan */}
+      <section id="plan" className="border-t border-border bg-bg-alt">
+        <div className="section-container">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">The plan</p>
+            <h2 className="mt-3 font-heading text-3xl font-bold sm:text-4xl">
+              3 <span className="text-lk-maroon">steps.</span>
+            </h2>
+          </div>
+          <ol className="mt-12 grid gap-6 md:grid-cols-3">
+            {planSteps.map((step, i) => (
+              <li key={step.title} className="glass-card p-7">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-lk-maroon font-heading text-lg font-bold text-white">
+                  {i + 1}
+                </span>
+                <h3 className="mt-5 font-heading text-xl font-semibold">{step.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-text-muted">{step.body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -483,21 +546,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact */}
+      {/* Sister company */}
+      <section className="px-6 pb-20">
+        <div className="glass-card mx-auto max-w-2xl p-6 text-center">
+          <p className="text-sm leading-relaxed text-text-muted">
+            <span className="text-lk-saffron">●</span>{" "}
+            AiGNITE Software (Pvt) Ltd operates as a sister company to{" "}
+            <a
+              href="https://aigniteconsulting.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lk-maroon underline underline-offset-2 transition-colors hover:text-lk-maroon-deep"
+            >
+              AiGNITE Consulting LLC
+            </a>{" "}
+            (Houston, TX), sharing architecture patterns, AI expertise, and
+            engineering standards across both entities.
+          </p>
+        </div>
+      </section>
+
+      {/* The ask */}
       <section id="contact" className="border-t border-border bg-bg-alt">
         <div className="section-container text-center">
-          <h2 className="font-heading text-3xl font-bold sm:text-4xl">
-            Get in <span className="text-lk-maroon">Touch</span>
+          <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">Start here</p>
+          <h2 className="mx-auto mt-3 max-w-3xl font-heading text-3xl font-bold sm:text-4xl">
+            Tell us which job you <span className="text-lk-maroon">still do by hand.</span>
           </h2>
-          <p className="mt-4 text-text-muted">
-            Interested in our products or looking to collaborate?
-          </p>
+          <p className="mt-4 text-text-muted">One message starts the conversation. No sales deck.</p>
           <a
             href="mailto:aruni@aigniteconsulting.ai"
             className="mt-8 inline-block rounded-lg bg-lk-maroon px-8 py-3 font-semibold text-white transition-colors hover:bg-lk-maroon-deep"
           >
-            aruni@aigniteconsulting.ai
+            Talk to us
           </a>
+          <p className="mt-4 text-sm text-text-muted">aruni@aigniteconsulting.ai</p>
         </div>
       </section>
 
