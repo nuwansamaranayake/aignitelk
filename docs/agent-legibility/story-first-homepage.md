@@ -30,7 +30,7 @@ The award block keeps the wording from `award-digital-innovation-impact-pioneer.
 | "6 products" | The 6 product pages on this site | Keep |
 | Award name, venue, 33 / 22 / 1 | Award record in this folder | Keep, wording unchanged |
 | "The courier pays weekly. The customer pays cash at the door. Your budget is in rupees." | Describes the market the products serve (Kadesavi courier check, cash on delivery, rupee prices) | Keep |
-| "Aruni replies in Sinhala or English." | Team section says bilingual. The reply promise is new | Confirm with Nuwan before deploy |
+| "Aruni replies in Sinhala and English." | Team section says bilingual. The owner confirmed on 2026-11-26 that Aruni replies in both languages | Confirmed |
 | "Sister company in Houston, Texas" | Sister company note on the page | Keep |
 
 ## 4. Claims removed from the homepage

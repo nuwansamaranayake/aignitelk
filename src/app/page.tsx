@@ -119,7 +119,7 @@ const planSteps = [
   },
   {
     title: "Message us",
-    body: "Tell us about your business. Aruni replies in Sinhala or English.",
+    body: "Tell us about your business. Aruni replies in Sinhala and English.",
   },
 ];
 
