@@ -87,7 +87,7 @@ $parsed = @()
 foreach ($b in $ld) { try { $parsed += ($b.Groups[1].Value | ConvertFrom-Json) } catch { } }
 $app = $parsed | Where-Object { $_.'@type' -eq 'SoftwareApplication' }
 Check 'JSON-LD parses' ($ld.Count -ge 1 -and $parsed.Count -eq $ld.Count) ("blocks=" + $ld.Count)
-Check 'JSON-LD SoftwareApplication fields' ($app -ne $null -and $app.name -eq 'GoviHub' -and $app.url -eq 'https://spices.govihublk.com' -and $app.operatingSystem -eq 'Web' -and $app.publisher.name -eq 'AiGNITE Sri Lanka' -and $app.award -match 'Digital Innovation Impact Pioneer')
+Check 'JSON-LD SoftwareApplication fields' ($app -ne $null -and $app.name -eq 'GoviHub' -and $app.url -eq 'https://spices.govihublk.com' -and $app.operatingSystem -eq 'Web' -and $app.publisher.'@id' -eq 'https://aignitelk.com/#aignite-software-private-limited' -and $app.award -match 'Digital Innovation Impact Pioneer')
 
 # SEO basics
 $title = [System.Net.WebUtility]::HtmlDecode([regex]::Match($html, '(?is)<title>(.*?)</title>').Groups[1].Value)
