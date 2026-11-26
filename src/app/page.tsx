@@ -163,10 +163,80 @@ export default function Home() {
       />
       <SiteNav />
 
-      {/* Story order: hero, problem, guide (with the award), plan, team, ask. */}
+      {/* Order: award, then the story (hero, problem, guide, plan, team, ask).
+          The owner keeps the award as the first section for now (2026-11-26). */}
+
+      {/* Award (first section, directly under the fixed nav) */}
+      <section id="award" className="pt-[84px]">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-6 py-6 md:grid-cols-[1.15fr_0.85fr] md:gap-12 md:py-8">
+          <div className="order-2 md:order-1">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">
+              International recognition
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+              Digital Innovation Impact Pioneer
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-text-primary">
+              AiGNITE Sri Lanka was recognised at the Global Digital Trade Expo in Hangzhou, China, in September 2026.
+            </p>
+            <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-text-muted">
+              <p>
+                Our GoviHub platform, an AI marketplace that connects Sri Lankan farmers directly to buyers, received the Digital Innovation Impact Pioneer award at the International Youth OPC Co-Creation Dialogue.
+              </p>
+              <p>
+                The programme was organised by the International Trade Centre, a joint agency of the United Nations and the World Trade Organization, together with the Global SDGs and Leadership Development Center and the China International Youth Exchange Center.
+              </p>
+              <p>
+                Aruni Samaranayake, our Director of Operations, accepted the award in Hangzhou on behalf of the company.
+              </p>
+            </div>
+            <div className="mt-6 grid grid-cols-3 divide-x divide-border-light border-y border-border-light py-4">
+              {awardStats.map(([value, label]) => (
+                <div key={label} className="px-3 first:pl-0 sm:px-5">
+                  <p className="font-heading text-3xl font-bold text-lk-maroon">{value}</p>
+                  <p className="mt-1 text-xs leading-snug text-text-muted sm:text-sm">{label}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/govihub"
+                className="rounded-lg bg-lk-maroon px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-lk-maroon-deep"
+              >
+                Explore GoviHub
+              </Link>
+              <a
+                href="#contact"
+                className="rounded-lg border border-lk-maroon px-6 py-3 text-center font-semibold text-lk-maroon transition-colors hover:bg-lk-maroon/5"
+              >
+                Work with us
+              </a>
+            </div>
+          </div>
+          <div className="order-1 flex justify-center md:order-2">
+            <picture className="block w-full">
+              <source
+                type="image/webp"
+                srcSet="/award/aruni_with_award-480.webp 480w, /award/aruni_with_award-800.webp 800w, /award/aruni_with_award-1200.webp 1200w"
+                sizes="(min-width: 1152px) 448px, (min-width: 768px) 40vw, calc(100vw - 48px)"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export: responsive WebP via <picture> */}
+              <img
+                src="/award/aruni_with_award-1200.jpg"
+                alt="Aruni Samaranayake of AiGNITE Sri Lanka holding the Digital Innovation Impact Pioneer award at the Global Digital Trade Expo, Hangzhou, September 2026"
+                width={1200}
+                height={1800}
+                loading="eager"
+                fetchPriority="high"
+                className="mx-auto h-auto w-full max-w-[min(100%,calc(58svh*2/3))] rounded-xl border border-border shadow-lk-2 md:max-w-[min(100%,calc((100svh_-_148px)*2/3))]"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
 
       {/* Hero: the customer's day, then the offer */}
-      <section className="relative overflow-hidden pt-[84px]">
+      <section className="relative overflow-hidden border-t border-border">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -left-24 top-1/4 h-96 w-96 rounded-full bg-lk-saffron/10 blur-3xl" />
           <div className="absolute right-0 top-10 h-72 w-72 rounded-full bg-lk-maroon/5 blur-3xl" />
@@ -333,9 +403,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Guide: empathy first, then the award */}
+      {/* Guide: empathy first. The award sits at the top of the page. */}
       <section id="about" className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-6 pt-20">
+        <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">Who we are</p>
             <h2 className="mt-3 font-heading text-3xl font-bold sm:text-4xl">
@@ -349,67 +419,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Award (wording from the award record, unchanged) */}
-      <section id="award">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 pb-20 pt-12 md:grid-cols-[1.15fr_0.85fr] md:gap-12">
-          <div className="order-2 md:order-1">
-            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-maroon">
-              International recognition
-            </p>
-            <h2 className="mt-3 font-heading text-3xl font-bold leading-tight sm:text-4xl">
-              Digital Innovation Impact Pioneer
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-text-primary">
-              AiGNITE Sri Lanka was recognised at the Global Digital Trade Expo in Hangzhou, China, in September 2026.
-            </p>
-            <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-text-muted">
-              <p>
-                Our GoviHub platform, an AI marketplace that connects Sri Lankan farmers directly to buyers, received the Digital Innovation Impact Pioneer award at the International Youth OPC Co-Creation Dialogue.
-              </p>
-              <p>
-                The programme was organised by the International Trade Centre, a joint agency of the United Nations and the World Trade Organization, together with the Global SDGs and Leadership Development Center and the China International Youth Exchange Center.
-              </p>
-              <p>
-                Aruni Samaranayake, our Director of Operations, accepted the award in Hangzhou on behalf of the company.
-              </p>
-            </div>
-            <div className="mt-6 grid grid-cols-3 divide-x divide-border-light border-y border-border-light py-4">
-              {awardStats.map(([value, label]) => (
-                <div key={label} className="px-3 first:pl-0 sm:px-5">
-                  <p className="font-heading text-3xl font-bold text-lk-maroon">{value}</p>
-                  <p className="mt-1 text-xs leading-snug text-text-muted sm:text-sm">{label}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/govihub"
-                className="rounded-lg border border-lk-maroon px-6 py-3 text-center font-semibold text-lk-maroon transition-colors hover:bg-lk-maroon/5"
-              >
-                Explore GoviHub
-              </Link>
-            </div>
-          </div>
-          <div className="order-1 flex justify-center md:order-2">
-            <picture className="block w-full">
-              <source
-                type="image/webp"
-                srcSet="/award/aruni_with_award-480.webp 480w, /award/aruni_with_award-800.webp 800w, /award/aruni_with_award-1200.webp 1200w"
-                sizes="(min-width: 768px) 384px, calc(100vw - 48px)"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element -- static export: responsive WebP via <picture> */}
-              <img
-                src="/award/aruni_with_award-1200.jpg"
-                alt="Aruni Samaranayake of AiGNITE Sri Lanka holding the Digital Innovation Impact Pioneer award at the Global Digital Trade Expo, Hangzhou, September 2026"
-                width={1200}
-                height={1800}
-                loading="lazy"
-                className="mx-auto h-auto w-full max-w-xs rounded-xl border border-border shadow-lk-2 md:max-w-sm"
-              />
-            </picture>
-          </div>
-        </div>
-      </section>
 
       {/* Plan */}
       <section id="plan" className="border-t border-border bg-bg-alt">

@@ -18,7 +18,9 @@ H1: "Stop running your business by hand. Get software built for Sri Lanka."
 
 ## 2. Section order
 
-Hero, problem (the 6 products, each entered through the job done by hand), guide, award, plan, team, sister company note, ask.
+Award, hero, problem (the 6 products, each entered through the job done by hand), guide, plan, team, sister company note, ask.
+
+The award block is the first section, the same block and position as the live page before this change. The owner decided on 2026-11-26 to keep the award there until Aruni's visa interview. After the interview, move the award below the guide block (the layout in commit `54a50dd`).
 
 The award block keeps the wording from `award-digital-innovation-impact-pioneer.md`. The award heading stays an H2. Never say the UN gave the award.
 
