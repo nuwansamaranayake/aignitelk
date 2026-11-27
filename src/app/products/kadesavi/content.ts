@@ -1,9 +1,12 @@
 // Copy for /products/kadesavi. Every claim matches a feature that is built and
 // live on kadesavi.com (checked 2026-11-19). Unbuilt features sit in comingSoon.
+// The page opens with the free page offer (2026-11-27). Its wording follows the
+// approved offer terms shown on kadesavi.com/offer.
 // Claims map: docs/kadesavi-page-claims.md
 
 export const PAGE_PATH = "/products/kadesavi";
 export const SITE_URL = "https://kadesavi.com";
+export const OFFER_URL = "https://kadesavi.com/offer";
 export const STORES_URL = "https://kadesavi.com/stores";
 export const SAMPLE_SHOP_URL = "https://kadesavi.com/s/demo";
 
@@ -17,19 +20,43 @@ export const meta = {
 };
 
 export const hero = {
-  eyebrow: "For sellers on WhatsApp and Facebook",
+  eyebrow: "For small businesses in Sri Lanka",
   title: "Kadesavi",
   sinhala: "කඩේ සවි",
   meaning: "Strength for your shop",
-  sub: "An order book and business advisor for one-owner online sellers in Sri Lanka. You take orders on WhatsApp and Facebook, ship by courier with cash on delivery and get paid weekly. Kadesavi keeps the book for you.",
-  primary: "Visit kadesavi.com",
+  sub: "Start with a free web page for your business. It is free for 2 months. Then it is Rs. 1,000 a month, only if you keep it. When your orders grow, Kadesavi keeps your order book too.",
+  primary: "Get your free page",
   secondary: "See the store directory",
-  chips: ["Runs on your phone", "Sinhala and English", "Cash on delivery", "We set it up"],
+  chips: ["We build it for you", "Free for 2 months", "Sinhala and English", "No domain or hosting to buy"],
 };
 
+// The free page offer. Each line is taken from the approved terms on kadesavi.com/offer.
+export const offer = {
+  eyebrow: "The offer",
+  title: "A free web page for your business",
+  body: "We build the page from your Facebook or Instagram page and the details you send us. Customers open one link, see what you sell and message you on WhatsApp.",
+  getTitle: "What you get",
+  items: [
+    "Your business name, logo, location and a short description",
+    "Up to 10 products or services, with one photo each",
+    "A WhatsApp button, so customers message you directly",
+    "Your own link: kadesavi.com/s/your-business",
+    "A listing in the Kadesavi store directory",
+    "One free update a month, up to 5 changes",
+  ],
+  price: "Free for 2 months from the day your page goes live. Then Rs. 1,000 a month by bank transfer, only if you keep it. If you do not, we turn the page off and charge nothing.",
+  not: "It does not include a custom domain, online payments, a cart or ads for your business.",
+  primary: "Get your free page",
+  secondary: "See a sample shop",
+  terms: "Read the full terms",
+  sampleNote: "The sample shop shows what a business gets. It is not a real business.",
+};
+
+// From here down: the order book, for sellers whose orders have grown.
 export const problem = {
-  eyebrow: "The problem",
+  eyebrow: "When your orders grow",
   title: "Today you do all of this by hand",
+  lead: "You take orders on WhatsApp and Facebook, ship by courier with cash on delivery and get paid weekly. Kadesavi keeps the order book for you.",
   cards: [
     { title: "Write every order in a book", body: "Name, address, phone, items and amount, one order at a time." },
     { title: "Type it again into Excel", body: "The same details twice, every day, for the courier." },
@@ -60,15 +87,6 @@ export const steps = {
   ],
 };
 
-export const shop = {
-  eyebrow: "Promote your business",
-  title: "A shop page and a store directory",
-  body: "Each seller can turn on a shop page on Kadesavi with a logo, product photos and product lines. Customers tap Order on WhatsApp and message the seller directly. No website or domain needed. Shops that are on appear in the Kadesavi store directory.",
-  primary: "Open the store directory",
-  secondary: "See a sample shop",
-  sampleNote: "The sample shop shows what a seller gets. It is not a real business.",
-};
-
 export const features = {
   eyebrow: "Made for one-person businesses",
   title: "Built for how small sellers work",
@@ -95,8 +113,8 @@ export const comingSoon = {
 };
 
 export const finalCta = {
-  title: "Run your shop from your phone",
-  body: "Kadesavi is a managed service with a monthly fee. We set it up for you. Talk to us about pricing and setup.",
-  primary: "Visit kadesavi.com",
+  title: "Start with your free page",
+  body: "We build it for you. You pay nothing now. The order book is a managed service with a monthly fee. Talk to us about it when your orders grow.",
+  primary: "Get your free page",
   secondary: "Talk to us",
 };
