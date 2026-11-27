@@ -5,6 +5,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import { ORG_ID, breadcrumbs } from "@/lib/seo";
 import {
+  OFFER_URL,
   PAGE_PATH,
   SAMPLE_SHOP_URL,
   SITE_URL,
@@ -15,8 +16,8 @@ import {
   finalCta,
   hero,
   meta,
+  offer,
   problem,
-  shop,
   steps,
 } from "./content";
 
@@ -111,7 +112,7 @@ export default function KadesaviPage() {
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-text-muted">{hero.sub}</p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={SITE_URL}
+                  href={OFFER_URL}
                   {...ext}
                   className={`${btn} bg-[#1f3fa6] text-white shadow-lk-2 hover:bg-[#17307f] focus-visible:outline-[#1f3fa6]`}
                 >
@@ -151,16 +152,71 @@ export default function KadesaviPage() {
           </div>
         </section>
 
-        {/* 2. The problem */}
-        <section aria-labelledby="problem-title" className="bg-white py-16 md:py-20">
+        {/* 2. The free page offer */}
+        <section id="free-page" aria-labelledby="offer-title" className="bg-white py-16 md:py-20">
+          <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+            <div>
+              <Eyebrow>{offer.eyebrow}</Eyebrow>
+              <h2 id="offer-title" className={`mt-3 font-heading text-3xl font-bold sm:text-4xl ${BLUE}`}>
+                {offer.title}
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-text-muted">{offer.body}</p>
+              <p className="mt-4 rounded-2xl border border-[#d3dae8] border-l-4 border-l-[#f2a60c] bg-[#f6f8fc] p-5 font-semibold leading-relaxed text-text-primary">
+                {offer.price}
+              </p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={OFFER_URL}
+                  {...ext}
+                  className={`${btn} bg-[#1f3fa6] text-white hover:bg-[#17307f] focus-visible:outline-[#1f3fa6]`}
+                >
+                  {offer.primary}
+                </a>
+                <a
+                  href={SAMPLE_SHOP_URL}
+                  {...ext}
+                  className={`${btn} border-2 border-[#1f3fa6] bg-white ${BLUE} hover:bg-[#e9edf6] focus-visible:outline-[#1f3fa6]`}
+                >
+                  {offer.secondary}
+                </a>
+              </div>
+              <p className="mt-3 text-sm text-text-muted">{offer.sampleNote}</p>
+            </div>
+            <div className="rounded-2xl border border-[#d3dae8] bg-[#f6f8fc] p-6 shadow-lk-1 sm:p-7">
+              <h3 className={`font-heading text-xl font-semibold ${BLUE}`}>{offer.getTitle}</h3>
+              <ul className="mt-4 space-y-3">
+                {offer.items.map((item) => (
+                  <li key={item} className="flex gap-3 leading-relaxed text-text-primary">
+                    <span aria-hidden className="mt-[2px] font-bold text-[#1a7f4b]">
+                      ✓
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm leading-relaxed text-text-muted">{offer.not}</p>
+              <a
+                href={OFFER_URL}
+                {...ext}
+                className={`mt-3 inline-block text-sm font-semibold underline underline-offset-4 ${BLUE} hover:text-[#17307f]`}
+              >
+                {offer.terms}
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. The order book: the problem */}
+        <section id="order-book" aria-labelledby="problem-title" className="py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-6">
             <Eyebrow tone="text-lk-maroon">{problem.eyebrow}</Eyebrow>
             <h2 id="problem-title" className={`mt-3 font-heading text-3xl font-bold sm:text-4xl ${BLUE}`}>
               {problem.title}
             </h2>
+            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-text-muted">{problem.lead}</p>
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {problem.cards.map((c) => (
-                <div key={c.title} className="rounded-2xl border border-[#d3dae8] border-t-4 border-t-[#f2a60c] bg-[#f6f8fc] p-6 shadow-lk-1">
+                <div key={c.title} className="rounded-2xl border border-[#d3dae8] border-t-4 border-t-[#f2a60c] bg-white p-6 shadow-lk-1">
                   <h3 className={`font-heading text-xl font-semibold ${BLUE}`}>{c.title}</h3>
                   <p className="mt-2 leading-relaxed text-text-muted">{c.body}</p>
                 </div>
@@ -169,7 +225,7 @@ export default function KadesaviPage() {
           </div>
         </section>
 
-        {/* 3. How it works */}
+        {/* 4. How it works */}
         <section aria-labelledby="how-title" className="bg-[#1f3fa6] py-16 text-white md:py-20">
           <div className="mx-auto max-w-6xl px-6">
             <Eyebrow tone="text-[#f2a60c]">{steps.eyebrow}</Eyebrow>
@@ -188,36 +244,8 @@ export default function KadesaviPage() {
           </div>
         </section>
 
-        {/* 4. Shop page and store directory */}
-        <section aria-labelledby="shop-title" className="bg-white py-16 md:py-20">
-          <div className="mx-auto max-w-6xl px-6">
-            <Eyebrow>{shop.eyebrow}</Eyebrow>
-            <h2 id="shop-title" className={`mt-3 font-heading text-3xl font-bold sm:text-4xl ${BLUE}`}>
-              {shop.title}
-            </h2>
-            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-text-muted">{shop.body}</p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={STORES_URL}
-                {...ext}
-                className={`${btn} bg-[#1f3fa6] text-white hover:bg-[#17307f] focus-visible:outline-[#1f3fa6]`}
-              >
-                {shop.primary}
-              </a>
-              <a
-                href={SAMPLE_SHOP_URL}
-                {...ext}
-                className={`${btn} border-2 border-[#1f3fa6] bg-white ${BLUE} hover:bg-[#e9edf6] focus-visible:outline-[#1f3fa6]`}
-              >
-                {shop.secondary}
-              </a>
-            </div>
-            <p className="mt-3 text-sm text-text-muted">{shop.sampleNote}</p>
-          </div>
-        </section>
-
         {/* 5. Made for one-person businesses */}
-        <section aria-labelledby="features-title" className="py-16 md:py-20">
+        <section aria-labelledby="features-title" className="bg-white py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-6">
             <Eyebrow>{features.eyebrow}</Eyebrow>
             <h2 id="features-title" className={`mt-3 font-heading text-3xl font-bold sm:text-4xl ${BLUE}`}>
@@ -225,7 +253,7 @@ export default function KadesaviPage() {
             </h2>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {features.items.map((f) => (
-                <div key={f.title} className="rounded-2xl border border-[#d3dae8] bg-white p-6 shadow-lk-1">
+                <div key={f.title} className="rounded-2xl border border-[#d3dae8] bg-[#f6f8fc] p-6 shadow-lk-1">
                   <h3 className={`font-heading text-lg font-semibold ${BLUE}`}>{f.title}</h3>
                   <p className="mt-2 leading-relaxed text-text-muted">{f.body}</p>
                 </div>
@@ -266,7 +294,7 @@ export default function KadesaviPage() {
             <p className="mt-4 text-lg leading-relaxed text-white/85">{finalCta.body}</p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <a
-                href={SITE_URL}
+                href={OFFER_URL}
                 {...ext}
                 className={`${btn} bg-[#f2a60c] text-[#1a1a1a] hover:bg-[#ffbe3d] focus-visible:outline-white`}
               >

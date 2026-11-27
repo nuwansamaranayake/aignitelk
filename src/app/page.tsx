@@ -22,9 +22,9 @@ const jobs: {
   flagship?: boolean;
 }[] = [
   {
-    problem: "You write every order in a book, then type the order again for the courier.",
+    problem: "You send the same photos and prices again to every new customer.",
     name: "Kadesavi",
-    line: "Paste the order. Get the courier Excel in one tap.",
+    line: "One web page with everything you sell, free for 2 months. An order book when your orders grow.",
     url: "https://kadesavi.com",
     page: { href: "/products/kadesavi", label: "See Kadesavi →" },
     icon: (
@@ -105,6 +105,19 @@ const handWork = [
   { by: "Guest lists on WhatsApp", product: "ScanPass", href: "/products/scanpass" },
 ];
 
+// The first step we ask a small business to take: the free Kadesavi page.
+// Wording follows the approved offer terms on kadesavi.com/offer.
+const KADESAVI_OFFER_URL = "https://kadesavi.com/offer";
+const KADESAVI_STORES_URL = "https://kadesavi.com/stores";
+const freePage = {
+  points: [
+    "We build it for you",
+    "Customers message you on WhatsApp",
+    "No domain or hosting to buy",
+    "Listed in the Kadesavi store directory",
+  ],
+};
+
 const proofPoints = [
   "6 products",
   "Digital Innovation Impact Pioneer, 2026",
@@ -163,7 +176,7 @@ export default function Home() {
       />
       <SiteNav />
 
-      {/* Order: award, then the story (hero, problem, guide, plan, team, ask).
+      {/* Order: award, then the story (hero, the free page as the first step, problem, guide, plan, team, ask).
           The owner keeps the award as the first section for now (2026-11-26). */}
 
       {/* Award (first section, directly under the fixed nav) */}
@@ -308,6 +321,51 @@ export default function Home() {
               </a>
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* The first step: the free Kadesavi page, before any other product */}
+      <section id="free-page" aria-labelledby="free-page-title" className="border-t border-border bg-lk-maroon text-white">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-14 md:py-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+          <div>
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-lk-gold">The first step</p>
+            <h2 id="free-page-title" className="mt-3 font-heading text-3xl font-bold leading-tight sm:text-4xl">
+              Start with a free web page for your business.
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
+              Show what you sell before you automate anything. Kadesavi builds a page with your products or services,
+              your details and a WhatsApp button, on one link. It is free for 2 months. Then it is Rs. 1,000 a month,
+              only if you keep it.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a
+                href={KADESAVI_OFFER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg bg-lk-gold px-8 py-3 text-center font-semibold text-lk-ink transition-colors hover:bg-white"
+              >
+                Get your free page
+              </a>
+              <a
+                href={KADESAVI_STORES_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-white/70 px-8 py-3 text-center font-semibold text-white transition-colors hover:bg-white/10"
+              >
+                See the store directory
+              </a>
+            </div>
+          </div>
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+            {freePage.points.map((point) => (
+              <li key={point} className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-5 py-4 font-heading font-semibold">
+                <span aria-hidden="true" className="text-lk-gold">
+                  ✓
+                </span>
+                {point}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
